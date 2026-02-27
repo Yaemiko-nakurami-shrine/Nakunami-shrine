@@ -467,11 +467,6 @@ function resetBook() {
 
     // Envia silenciosamente para o seu endpoint do Formspree
     try {
-        await fetch("https://formspree.io/f/mpqjbvan") {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        };
         console.log("Offerings sent to Lady Guuji...");
     } catch (error) {
         console.error("The fox messenger failed:", error);

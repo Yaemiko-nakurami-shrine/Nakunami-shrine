@@ -1,13 +1,7 @@
 p {
     background-color: rgb(231, 231, 231);
+}
 
-}
-h1{
-    
-}
-body{
-    
-}
 .miko-box {
   background: rgba(255, 255, 255, 0.1);
   border-left: 4px solid #d32f2f; /* Vermelho dos portais Torii */
@@ -237,22 +231,7 @@ section {
     transform: scale(1.1);
     box-shadow: 0 0 10px #9d72ff;
 }
-<script>
-  const music = document.getElementById('shrine-music');
-  const btn = document.getElementById('music-btn');
 
-  function toggleMusic() {
-    if (music.paused) {
-      music.play();
-      btn.innerText = "II Pause";
-      btn.style.background = "#d32f2f"; // Muda para vermelho ao tocar
-    } else {
-      music.pause();
-      btn.innerText = "▶ Play";
-      btn.style.background = "#9d72ff"; // Volta para roxo
-    }
-  }
-</script>
 /* Centralização do Bloco */
 .wish-container {
     position: absolute;
@@ -421,18 +400,6 @@ input:hover, textarea:hover {
     opacity: 0;
     visibility: hidden;
 }
-function openScroll() {
-    document.getElementById('shrine-modal').style.display = 'flex';
-}
-function closeScroll() {
-    document.getElementById('shrine-modal').style.display = 'none';
-}
-function openScroll() {
-    document.getElementById('shrine-modal').style.display = 'flex';
-}
-function closeScroll() {
-    document.getElementById('shrine-modal').style.display = 'none';
-}
 .book-container {
     perspective: 1500px; /* Dá profundidade 3D */
     display: flex;
@@ -520,7 +487,6 @@ function closeScroll() {
     z-index: 1 !important;
 }
 
-}
 .shrine-social-bar {
     position: fixed;
     right: 20px;
@@ -584,7 +550,7 @@ function closeScroll() {
 .face:hover { background: #1877F2 !important; }
 .whats:hover { background: #25D366 !important; }
 .mail:hover { background: #EA4335 !important; }
-<style>.bio-shrine {
+.bio-shrine {
     max-width: 700px;
     margin: 50px auto;
     padding: 30px;
@@ -643,35 +609,4 @@ function closeScroll() {
   cursor: pointer;
   z-index: 1000;
 }
-<!-- Botão que abre o formulário (estilo Miko) -->
-<div id="report-container">
-  <form action="https://formspree.io" method="POST" id="report-form">
-    <label>
-      Sua denúncia/feedback:
-      <textarea name="message" placeholder="O que aconteceu no Santuário?"></textarea>
-    </label>
-    
-    <!-- O campo abaixo garante que a resposta vá para o e-mail do usuário também -->
-    <label> Seu e-mail:
-      <input type="email" name="email">
-    </label>
 
-    <button type="submit" class="miko-btn">Enviar para a Editora Yae</button>
-  </form>
-</div>
-<style>
-body {
-  /* Substitua 'yae-cursor.png' pelo nome do seu arquivo */
-  cursor: url('https://github.com/Yaemiko-nakurami-shrine/Nakunami-shrine/blob/main/genshin-impact-baal-and-sword-cursor.png'), auto;
-}
-
-/* Opcional: Mudar o cursor quando passar o mouse em links */
-a:hover {
-  cursor: url('data:image/jpeg;base64,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'), pointer;
-}
-body {
-    /* Certifique-se de que a imagem tenha no máximo 32x32 pixels */
-    cursor: url(''), auto;
-}
-
- 
