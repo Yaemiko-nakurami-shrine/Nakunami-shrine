@@ -2,6 +2,15 @@ p {
     background-color: rgb(231, 231, 231);
 }
 
+/* Cursor Custom */
+* {
+  cursor: url('genshin-impact-baal-and-sword-cursor.png'), auto;
+}
+
+a {
+  cursor: url('genshin-impact-baal-and-sword-cursor.png'), pointer;
+}
+
 .miko-box {
   background: rgba(255, 255, 255, 0.1);
   border-left: 4px solid #d32f2f; /* Vermelho dos portais Torii */
