@@ -21,6 +21,61 @@
         </div>
     </div>
 
+    <!-- MAINTENANCE SCREEN (Atualização) -->
+    <div id="maintenance-screen" class="maintenance-screen" style="display: none;">
+        <div class="maintenance-content">
+            <div class="maintenance-header">
+                <div class="fox-icon spinning">🦊</div>
+                <h1>⚡ Os Mistérios Estão Sendo Revelados ⚡</h1>
+                <p class="subtitle">O Santuário Nakunami está sendo atualizado...</p>
+            </div>
+
+            <div class="maintenance-message">
+                <div class="loading-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <p id="maintenance-status">Reorganizando os poderes da Eletro...</p>
+            </div>
+
+            <div class="maintenance-features">
+                <h3>✨ Novidades em breve:</h3>
+                <div class="features-grid">
+                    <div class="feature">
+                        <span class="feature-icon">📱</span>
+                        <p>Nova Interface</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">⚡</span>
+                        <p>Mais Rápido</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🎨</span>
+                        <p>Mais Bonito</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🔐</span>
+                        <p>Mais Seguro</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="maintenance-footer">
+                <p>Que a Luz de Narukami guie este momento... 🌸</p>
+                <p class="update-time" id="update-time"></p>
+            </div>
+
+            <div class="electro-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- AUTH MODAL (Login/Sign Up) -->
     <div id="auth-modal" class="auth-modal">
         <div class="auth-container">
@@ -365,6 +420,14 @@
                     <button class="admin-btn" onclick="resetAllData()" style="background: linear-gradient(135deg, rgba(139, 0, 0, 0.6), rgba(255, 0, 0, 0.6)); border-color: #FF4444;">🔄 Resetar Dados</button>
                     <button class="admin-btn" onclick="clearActivityLog()">🗑️ Limpar Log</button>
                 </div>
+            </div>
+
+            <div class="admin-section">
+                <h3>📱 Gerenciamento de Manutenção</h3>
+                <div class="admin-grid">
+                    <button class="admin-btn" id="toggle-maintenance-btn" onclick="toggleMaintenanceMode()">🔧 Ativar Manutenção</button>
+                </div>
+                <p style="font-size: 0.9rem; color: #ffb7c5; margin-top: 10px;">Ativa/desativa a tela de manutenção do site</p>
             </div>
 
             <div class="admin-section">

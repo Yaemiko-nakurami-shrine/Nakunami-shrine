@@ -451,6 +451,29 @@ function deleteUser() {
     }
 }
 
+function toggleMaintenanceMode() {
+    const currentUser = JSON.parse(localStorage.getItem('current_user'));
+    
+    if (!currentUser || currentUser.email !== ADMIN_EMAIL) {
+        alert('❌ Acesso negado! Apenas administradores podem usar isso.');
+        return;
+    }
+    
+    const isMaintenance = localStorage.getItem('maintenance_mode') === 'true';
+    
+    if (isMaintenance) {
+        // Desativar manutenção
+        hideMaintenance();
+        document.getElementById('toggle-maintenance-btn').textContent = '🔧 Ativar Manutenção';
+        alert('✅ Tela de manutenção DESATIVADA. Site voltando ao normal!');
+    } else {
+        // Ativar manutenção
+        showMaintenance();
+        document.getElementById('toggle-maintenance-btn').textContent = '✅ Desativar Manutenção';
+        alert('🔧 Tela de manutenção ATIVADA. Site está em modo de atualização!');
+    }
+}
+
 function resetAllData() {
     if (confirm('⚠️ AVISO: Isto vai deletar TODOS os dados!\n\nVocê tem certeza?')) {
         if (confirm('Digite "SIM" para confirmar a ação irreversível!')) {
@@ -775,5 +798,67 @@ window.addEventListener('load', () => {
                 </div>
             </div>
         `;
+    }
+});
+
+// ===== MAINTENANCE SCREEN =====
+function showMaintenance() {
+    const maintenanceScreen = document.getElementById('maintenance-screen');
+    if (maintenanceScreen) {
+        maintenanceScreen.style.display = 'flex';
+        localStorage.setItem('maintenance_mode', 'true');
+        updateMaintenanceTime();
+        
+        // Atualizar texto de status a cada 3 segundos
+        const statusInterval = setInterval(() => {
+            const statuses = [
+                '🔧 Reorganizando os poderes da Eletro...',
+                '⚡ Sintonizando a frequência de Narukami...',
+                '🦊 Yae Miko está canalizando energia...',
+                '✨ Purificando o Santuário...',
+                '🌸 Abrindo os portais dos mistérios...'
+            ];
+            const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+            const statusElement = document.getElementById('maintenance-status');
+            if (statusElement) {
+                statusElement.textContent = randomStatus;
+            }
+        }, 3000);
+        
+        // Guardar intervalo para poder limpar depois
+        window.maintenanceStatusInterval = statusInterval;
+    }
+}
+
+function hideMaintenance() {
+    const maintenanceScreen = document.getElementById('maintenance-screen');
+    if (maintenanceScreen) {
+        maintenanceScreen.style.display = 'none';
+        localStorage.setItem('maintenance_mode', 'false');
+        
+        // Limpar intervalo
+        if (window.maintenanceStatusInterval) {
+            clearInterval(window.maintenanceStatusInterval);
+        }
+    }
+}
+
+function updateMaintenanceTime() {
+    const updateTimeElement = document.getElementById('update-time');
+    if (updateTimeElement) {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('pt-BR', { 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit' 
+        });
+        updateTimeElement.textContent = `Última atualização: ${timeString}`;
+    }
+}
+
+// Restaurar modo de manutenção ao carregar página
+window.addEventListener('load', () => {
+    if (localStorage.getItem('maintenance_mode') === 'true') {
+        showMaintenance();
     }
 });
