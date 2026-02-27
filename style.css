@@ -295,3 +295,129 @@ section {
     cursor: pointer;
     font-weight: bold;
 }
+/* Adicione isso ao seu arquivo CSS */
+input:hover, textarea:hover {
+    box-shadow: 0 0 20px rgba(163, 51, 255, 0.6); /* Brilho roxo da Yae */
+    transform: scale(1.02); /* Aumenta levemente */
+    transition: all 0.3s ease;
+}
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1a; /* Cor escura elegante */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Fica na frente de tudo */
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.fox-loader {
+    text-align: center;
+}
+
+.fox-loader img {
+    width: 150px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px #ffb7c5);
+}
+
+.loading-bar-container {
+    width: 250px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+#loading-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #ffb7c5, #a333ff);
+    box-shadow: 0 0 10px #ffb7c5;
+    transition: width 0.4s ease;
+}
+
+#loading-text {
+    color: #ffb7c5;
+    margin-top: 15px;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* Classe para sumir com o loader */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1a; /* Cor escura elegante */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Fica na frente de tudo */
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.fox-loader {
+    text-align: center;
+}
+
+.fox-loader img {
+    width: 150px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px #ffb7c5);
+}
+
+.loading-bar-container {
+    width: 250px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+#loading-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #ffb7c5, #a333ff);
+    box-shadow: 0 0 10px #ffb7c5;
+    transition: width 0.4s ease;
+}
+
+#loading-text {
+    color: #ffb7c5;
+    margin-top: 15px;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* Classe para sumir com o loader */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
