@@ -168,20 +168,22 @@ function drawFortune() {
         <button type="submit" class="btn-submit">Submit Offering ✨</button>
     </form>
 </div>
-<!-- O 'f/seu-email' diz ao Formspree para onde enviar -->
-<form action="https://formspree.io" method="POST">
+<!-- O 'action' aponta para o serviço que manda o e-mail para você -->
+<form action="https://formsubmit.co" method="POST">
     
-    <label>Your Name</label>
-    <input type="text" name="name" required>
+    <!-- Campo para o Nome -->
+    <input type="text" name="name" placeholder="Your Name" required>
+    
+    <!-- Campo para o E-mail de quem está escrevendo -->
+    <input type="email" name="email" placeholder="Your Email" required>
+    
+    <!-- O Desejo (Wish) -->
+    <textarea name="message" placeholder="Write your wish here..." required></textarea>
 
-    <label>Your Email</label>
-    <input type="email" name="email" required>
-
-    <label>Your Wish</label>
-    <textarea name="message" required></textarea>
-
-    <!-- Isso define o título do e-mail que você vai receber -->
-    <input type="hidden" name="_subject" value="Novo Desejo para a Yae Miko!">
+    <!-- Configurações Extras do E-mail -->
+    <input type="hidden" name="_subject" value="Novo Desejo no Santuário de Yae Miko!">
+    <input type="hidden" name="_captcha" value="false"> <!-- Pula o teste de robô -->
+    <input type="hidden" name="_template" value="table"> <!-- Deixa o e-mail organizado -->
 
     <button type="submit">Submit Offering ✨</button>
 </form>
