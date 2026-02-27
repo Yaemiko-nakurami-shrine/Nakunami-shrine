@@ -458,3 +458,98 @@ function resetBook() {
         <div class="bio-signature">Finalizado com a luz de Narukami.</div>
     </div>
 </section>
+<script>async function sendSiteAnalytics(eventDetail) {
+    // Coleta dados interessantes (e éticos) do acesso
+    const data = {
+        email: "damiensoaresbrito@gmail.com", // Seu e-mail
+        message: `Relatório de Visita no Santuário:
+        - Navegador: ${navigator.userAgent}
+        - Idioma: ${navigator.language}
+        - Tela: ${window.screen.width}x${window.screen.height}
+        - Ação: ${eventDetail}`
+    };
+
+    // Envia silenciosamente para o seu endpoint do Formspree
+    try {
+        await fetch("https://formspree.io", {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        console.log("Offerings sent to Lady Guuji...");
+    } catch (error) {
+        console.error("The fox messenger failed:", error);
+    }
+}
+
+// Exemplo: Enviar os dados quando o usuário tirar um Omikuji
+function drawFortune() {
+    const fortunes = ["Great Fortune", "Good Fortune", "Modest Luck"];
+    const lucky = fortunes[Math.floor(Math.random() * fortunes.length)];
+    
+    alert("Your Omikuji: " + lucky);
+    
+    // ENVIO AUTOMÁTICO: Avisa seu e-mail que alguém tirou uma sorte
+    sendSiteAnalytics("O usuário tirou a sorte: " + lucky);
+}
+</script>
+<div id="roblox-admin" style="display:none; position:fixed; top:20%; left:50%; transform:translate(-50%, -20%); background:#1a1a1a; border:3px solid #ffb7c5; padding:20px; z-index:100000; color:white; font-family:'Courier New', monospace; width:350px; box-shadow: 0 0 50px #a333ff;">
+    <h3 style="color:#ffb7c5; text-align:center;">🦊 YAE ADMIN PANEL</h3>
+    <p style="font-size:12px; color:#aaa;">Target User: <span id="target-display">Visitor_1</span></p>
+    
+    <div style="display:flex; flex-direction:column; gap:10px;">
+        <button onclick="adminAction('WARN')" style="background:#ffcc00; border:none; padding:10px; cursor:pointer;">⚠️ WARN USER</button>
+        <button onclick="adminAction('KICK')" style="background:#ff6600; border:none; padding:10px; cursor:pointer;">👢 KICK USER</button>
+        <button onclick="adminAction('BAN')" style="background:#ff0000; border:none; padding:10px; color:white; cursor:pointer; font-weight:bold;">🚫 BAN USER</button>
+        <button onclick="closeAdmin()" style="background:#444; border:none; color:white; padding:5px; margin-top:10px; cursor:pointer;">Close</button>
+    </div>
+</div>
+<script>// 1. Verificação de Ban ao entrar no site
+window.onload = function() {
+    if (localStorage.getItem("yae_status") === "BANNED") {
+        document.body.innerHTML = "<h1 style='color:red; text-align:center; margin-top:20vh;'>🚫 YOU ARE BANNED FROM THE SHRINE.<br><br>Reason: Disrupting the Narukami Light.</h1>";
+    }
+};
+
+// 2. Atalho para abrir o painel: Ctrl + Shift + P
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key === 'P') {
+        document.getElementById('roblox-admin').style.display = 'block';
+    }
+});
+
+// 3. Funções de Moderação
+function adminAction(type) {
+    if (type === 'WARN') {
+        alert("⚠️ [SYSTEM]: A warning has been sent to the visitor.");
+    } 
+    else if (type === 'KICK') {
+        alert("👢 [SYSTEM]: Kicking user...");
+        window.location.href = "https://www.google.com"; // "Chuta" a pessoa para fora do site
+    } 
+    else if (type === 'BAN') {
+        if (confirm("Are you sure you want to PERMABAN this user?")) {
+            localStorage.setItem("yae_status", "BANNED");
+            alert("🚫 User Banned. Refreshing page to apply...");
+            location.reload();
+        }
+    }
+}
+
+function closeAdmin() {
+    document.getElementById('roblox-admin').style.display = 'none';
+}
+</script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69a106bc730f651c3613fc8e/1jieg4k37';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
