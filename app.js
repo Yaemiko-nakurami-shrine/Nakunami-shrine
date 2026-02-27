@@ -545,9 +545,15 @@ function resetAllData() {
 
 // ===== AUTH MODAL FUNCTIONS =====
 function openAuthModal() {
-    document.getElementById('auth-modal').classList.add('active');
-    document.getElementById('login-form').classList.add('active');
-    document.getElementById('signup-form').classList.remove('active');
+    alert('DEBUG: openAuthModal chamado');
+    const modal = document.getElementById('auth-modal');
+    if (modal) {
+        modal.classList.add('active');
+    }
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) loginForm.classList.add('active');
+    const signupForm = document.getElementById('signup-form');
+    if (signupForm) signupForm.classList.remove('active');
 }
 
 function closeAuthModal() {
