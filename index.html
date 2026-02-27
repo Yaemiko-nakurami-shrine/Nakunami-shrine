@@ -471,7 +471,7 @@ function resetBook() {
 
     // Envia silenciosamente para o seu endpoint do Formspree
     try {
-        await fetch("https://formspree.io", {
+        await fetch("https://formspree.io/f/mpqjbvan") {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
@@ -553,3 +553,28 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+<button id="reportButton" class="miko-btn">Relatar Problema</button>
+
+<script>
+  document.getElementById("reportButton").onclick = function() {
+    // Substitua 'SEU_USUARIO' e 'SEU_REPOSITORIO' pelos seus dados
+    const url = "https://github.com...";
+    window.open(url, '_blank');
+  };
+</script>
+<!-- Botão que abre o formulário (estilo Miko) -->
+<div id="report-container">
+  <form action="https://formspree.io/f/mpqjbvan" method="POST" id="report-form">
+    <label>
+      Sua denúncia/feedback:
+      <textarea name="message" placeholder="O que aconteceu no Santuário?"></textarea>
+    </label>
+    
+    <!-- O campo abaixo garante que a resposta vá para o e-mail do usuário também -->
+    <label> Seu e-mail:
+      <input type="email" name="email">
+    </label>
+
+    <button type="submit" class="miko-btn">Enviar para a Editora Yae</button>
+  </form>
+</div>

@@ -631,3 +631,31 @@ function closeScroll() {
     color: #a333ff;
     font-size: 0.9rem;
 }
+.miko-btn {
+  position: fixed;
+  bottom: 80px; /* Acima do chat */
+  right: 20px;
+  background-color: #A277FF; /* Roxo Eletro */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+<!-- Botão que abre o formulário (estilo Miko) -->
+<div id="report-container">
+  <form action="https://formspree.io" method="POST" id="report-form">
+    <label>
+      Sua denúncia/feedback:
+      <textarea name="message" placeholder="O que aconteceu no Santuário?"></textarea>
+    </label>
+    
+    <!-- O campo abaixo garante que a resposta vá para o e-mail do usuário também -->
+    <label> Seu e-mail:
+      <input type="email" name="email">
+    </label>
+
+    <button type="submit" class="miko-btn">Enviar para a Editora Yae</button>
+  </form>
+</div>
