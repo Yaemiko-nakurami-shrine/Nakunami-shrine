@@ -1,509 +1,375 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Nakunami Shrine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <title>Nakunami Shrine - Santuário de Yae Miko</title>
 </head>
 <body>
-   
-   <h1>Nakurami Shrine</h1>
-   <h2>Greetings fellow traveler!</h2>
-   <h2>Welcome to the sacred shrine of Nakurami.</h2>
-   <p>As the head shrine maiden, I am honored to guide you through our traditions and rituals.</p>
-   <p>Here, we worship the divine fox spirit, Nakurami, who is said to bring good fortune and prosperity to those who pay their respects.</p>
-   <p>Feel free to explore the shrine grounds, offer your prayers, and partake in our ceremonies.</p>
-   <p>May Nakurami bless you with happiness and success on your journey.</p>
-   <p>High atop Mt. Yougou, where the clouds meet the earth, stands the Grand Narukami Shrine. As the most important shrine in Inazuma, it remains a sanctuary of peace and divine protection, overseen by the watchful gaze of the Lady Guuji.</p>
-   <p>The shrine is managed by Yae Miko, the "Guuji" of the Grand Narukami Shrine and Editor-in-Chief of the Yae Publishing House. Wise, beautiful, and unpredictable, she ensures that the traditions of the shrine are kept—often with a playful twist that only a kitsune could devise.</p>
-   <p>Are you curious about what the stars have in store? Draw a Fortune Slip at the shrine booth. Whether you receive "Great Misfortune" or "Great Fortune," remember that destiny is as fleeting as a lightning flash, yet as enduring as the mountain itself.</p>
-   <p>Present your Electro Sigils to the Sacred Sakura to deepen your favor with the divine. As the tree grows stronger, so too shall the blessings bestowed upon you during your travels across the islands of Eternity.</p>
-   <p>The Sacred Sakura is more than just a tree; it is the soul of Inazuma. It remembers everything, from the whispers of the past to the dreams of the future. Offer your sigils, and perhaps the blossoms will whisper a secret or two just for you."</p>"
-   <h3>Yae Miko's msg</h3> 
-   
-  <div class="miko-box">
-  <p class="miko-text">"Oh? A visitor at this hour? I hope you brought some Fried Tofu..."</p>
-</div>
-<p>"Are you here to draw a fortune slip, little one? Don't look so nervous. Even if it says 'Great Misfortune,' I might be persuaded to help you change your fate... for a price, of course. After all, what is life without a little bit of chaos and a lot of fun?"</p>
-
-</body>
-</html>
-<section class="miko-profile">
-  <div class="miko-avatar">
-  <!-- Copinete e cole este link no seu HTML -->
-<img src="https://i.pinimg.com/736x/ce/73/35/ce7335937441da6026784d7358146c18.jpg" alt="Yae Miko" class="miko-img">
-<!-- Substitua por uma imagem real da Miko -->
-  </div>
-  <div class="miko-info">
-    <h3>Lady Guuji Yae Miko</h3>
-    <p class="subtitle">Guuji of the Grand Narukami Shrine</p>
-    <span class="vision-tag">Electro</span>
-  </div>
-</section>
-<nav class="shrine-nav">
-  <ul>
-    <li><a href="#intro">Sacred Sakura</a></li>
-    <li><a href="#miko">Lady Guuji</a></li>
-    <li><a href="#omikuji">Draw Fortune</a></li>
-  </ul>
-</nav>
-<div class="omikuji-section" id="omikuji">
-  <h2>Draw your Fortune Slip</h2>
-  <div class="omikuji-box">
-    <p id="fortune-text">"Click the button to see what fate has in store..."</p>
-    <button onclick="drawFortune()">Shake the Box</button>
-  </div>
-</div>
-<script>
-function drawFortune() {
-  const fortunes = [
-    "✨ Great Fortune: The lightning strikes twice in your favor today!",
-    "🌸 Good Luck: A fox's blessing follows your every step.",
-    "⚡ Modest Luck: Be careful with Electro, but victory is yours.",
-    "🦊 Neutral: The Lady Guuji is watching... don't be boring.",
-    "💧 Misfortune: Perhaps a box of Fried Tofu will change your fate?"
-  ];
-  const random = fortunes[Math.floor(Math.random() * fortunes.length)];
-  document.getElementById('fortune-text').innerText = random;
-}
-</script>
-<div class="skill-container">
-  <div class="skill-item">
-    <div class="skill-icon">⚡</div>
-    <div class="skill-desc">
-      <strong>Great Secret Art: Tenko Kenshin</strong>
-      <p>Summons lightning to strike enemies with fox-like precision.</p>
-    </div>
-  </div>
-</div>
-<nav class="shrine-nav">
-  <ul>
-    <li><a href="#sakura">Sacred Sakura</a></li>
-    <li><a href="#miko">Lady Guuji</a></li>
-    <li><a href="#fortune">Draw Fortune</a></li>
-  </ul>
-</nav>
-<!-- SEÇÃO 1: SACRED SAKURA -->
-<section id="sakura" class="page-section">
-    <h2>The Sacred Sakura</h2>
-    <p>The climb to the Grand Narukami Shrine is a journey of purification. Thousands of vibrant red Torii gates line the winding stairs of Mount Yougou, each one a silent witness to the prayers of countless souls. As the air grows thin and the scent of Sakura blossoms fills the wind, the noise of the world below fades into the hum of sacred thunder.</p>
-    <p>Since ancient times, the shrine has stood as the ultimate shield against the "Sacred Sakura Cleansing." The roots of the divine tree reach deep into the earth, drawing out the filth and miasma that plague the land. It is here, under the moon's silver glow, that the shrine maidens perform their dances to ensure the eternity of Narukami's grace.</p>
-
-    <!-- Adicione aqui imagens ou mais textos sobre a árvore -->
-
-</section>
-
-<hr class="divider">
-
-<!-- SEÇÃO 2: LADY GUUJI -->
-<section id="miko" class="page-section">
-    <h2>Lady Guuji Yae Miko</h2>
-    <p>"Oh? A visitor at this hour? I hope you brought some Fried Tofu..."</p>
-    <p>Keep a respectful silence as you pass the stone Sky Kitsune and Earth Kitsune statues. They are the eyes and ears of the Lady Guuji. Legends say that for those who show true devotion, these stone guardians might whisper secrets of the past or grant a fleeting glimpse into a future yet to be written.</p>
-
-    <!-- Aqui vai a imagem da Miko que você baixou -->
-</section>
-
-<hr class="divider">
-
-<!-- SEÇÃO 3: DRAW FORTUNE -->
-<section id="fortune" class="page-section">
-    <h2>Grand Narukami Fortune</h2>
-    <!-- Aqui vai o código do botão de Omikuji que te mandei antes -->
-    <div class="omikuji-box">
-        <p id="fortune-text">Shake the box to see your destiny.</p>
-        <button onclick="drawFortune()">Draw Slip</button>
-    </div>
-</section>
-</script>
-<section class="rules-section">
-  <h2>Shrine Decree: Rules for Visitors</h2>
-  <table class="shrine-table">
-    <thead>
-      <tr>
-        <th>Action</th>
-        <th>Shrine Law</th>
-        <th>Guuji's Comment 🦊</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Offerings</strong></td>
-        <td>Only Electro Sigils or Fried Tofu.</td>
-        <td>"The Sakura has expensive taste, darling."</td>
-      </tr>
-      <tr>
-        <td><strong>Spirits</strong></td>
-        <td>Do not disturb the Fox Statues.</td>
-        <td>"They see everything. Even your bad luck."</td>
-      </tr>
-      <tr>
-        <td><strong>Fortune Slips</strong></td>
-        <td>One Omikuji per day only.</td>
-        <td>"Don't blame the paper for your fate."</td>
-      </tr>
-      <tr>
-        <td><strong>Photography</strong></td>
-        <td>Allowed, but keep it elegant.</td>
-        <td>"Make sure to catch my best angle."</td>
-      </tr>
-      <tr>
-        <td><strong>Climbing</strong></td>
-        <td>Use the stairs, not the cliffs.</td>
-        <td>"Unless you have a Glider and no fear."</td>
-      </tr>
-    </tbody>
-  </table>
-<div class="container">
-    <div class="header">
-        <h2 style="color: #a333ff;">Send Wishes to the Grand Yae Miko</h2>
-        <p>May the Narukami light guide your path.</p>
-    </div>
-  <!-- 1. O 'action' deve estar no formulário que engloba os campos organizados -->
-<form action="https://formspree.io/f/mpqjbvan" method="POST" style="width: 100%;">
-
-    <!-- Campo de Nome (Zhongli) -->
-    <input type="text" name="name" placeholder="Your Name" required 
-           style="width: 100%; margin-bottom: 10px; padding: 10px;">
-
-    <!-- Campo de E-mail (damien.brito...) -->
-    <input type="email" name="email" placeholder="Your Email" required 
-           style="width: 100%; margin-bottom: 10px; padding: 10px;">
-
-    <!-- Área do Desejo (Just a test) -->
-    <textarea name="message" placeholder="Your Wish" required 
-              style="width: 100%; height: 100px; padding: 10px;"></textarea>
-
-    <!-- 2. O BOTÃO ROXO deve ser do tipo 'submit' e estar DENTRO do form -->
-    <button type="submit" style="background-color: #a333ff; color: white; width: 100%; padding: 15px; border: none; cursor: pointer;">
-        Submit Offering ✨
-    </button>
-</form>
-<body>
-  <!-- Som de sino místico (exemplo de link público) -->
-<audio id="shrine-bell" src="https://www.myinstants.com"></audio>
-
-<script>
-  const form = document.querySelector('form');
-  const bell = document.getElementById('shrine-bell');
-
-  form.addEventListener('submit', () => {
-    bell.play();
-    alert("May the Narukami light guide your path... Your offering was sent!");
-  });
-</script>
-
-</body>
-<p id="yae-quote" style="font-style: italic; color: #ffb7c5; text-align: center;"></p>
-
-<script>
-  const quotes = [
-    "\"Nothing lasts forever.\"",
-    "\"Show me your bravery!\"",
-    "\"Come on, don't be shy.\"",
-    "\"The fox is watching...\""
-  ];
-  document.getElementById('yae-quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
-</script>
-<h2 id="typing-text" style="color: #ffb7c5; text-shadow: 0 0 10px rgba(255, 183, 197, 0.8);"></h2>
-
-<script>
-  const text = "May the Narukami light guide your path...";
-  let i = 0;
-  function typeWriter() {
-    if (i < text.length) {
-      document.getElementById("typing-text").innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typeWriter, 100); // Velocidade da digitação
-    }
-  }
-  window.onload = typeWriter;
-</script>
-<script>
-document.addEventListener('click', (e) => {
-    const spark = document.createElement('div');
-    spark.className = 'electro-spark';
-    spark.style.left = e.pageX + 'px';
-    spark.style.top = e.pageY + 'px';
-    document.body.appendChild(spark);
-
-    setTimeout(() => spark.remove(), 600);
-});
-</script>
-
-<style>
-.electro-spark {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background: #a333ff;
-    box-shadow: 0 0 15px #ff77ff;
-    border-radius: 50%;
-    pointer-events: none;
-    animation: explode 0.6s ease-out forwards;
-}
-
-@keyframes explode {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(4); opacity: 0; }
-}
-</style>
-<div id="omikuji-box" style="text-align:center; margin-top:20px;">
-    <button onclick="drawFortune()" id="fortune-btn">Draw an Omikuji 🧧</button>
-    <p id="fortune-text" style="display:none; margin-top:15px; font-weight:bold; color:#ffb7c5;"></p>
-</div>
-<head><link href="https://fonts.googleapis.com" rel="stylesheet">
-
-<style>
-    body { font-family: 'Poppins', sans-serif; }
-    h1, h2, .shrine-title { font-family: 'Cinzel', serif; }
-</style>
-</head>
-<body><div id="loader-wrapper">
-    <div class="fox-loader">
-        <img src="https://i.pinimg.com/736x/ce/73/35/ce7335937441da6026784d7358146c18.jpg" alt="Yae Miko Loading" class="yae-loader-img">
-        <div class="loading-bar-container">
-            <div id="loading-bar"></div>
+    <!-- LOADER SCREEN -->
+    <div id="loader-wrapper">
+        <div class="fox-loader">
+            <img src="https://i.pinimg.com/736x/ce/73/35/ce7335937441da6026784d7358146c18.jpg" alt="Yae Miko Loading" class="yae-loader-img">
+            <div class="loading-bar-container">
+                <div id="loading-bar"></div>
+            </div>
+            <p id="loading-text">Summoning Lady Guuji...</p>
         </div>
-        <p id="loading-text">Summoning Lady Guuji...</p>
     </div>
-</div>
-    <!-- ... todo o seu código de HTML e CSS acima ... -->
 
+    <!-- NAVEGAÇÃO PRINCIPAL -->
+    <nav class="shrine-nav">
+        <ul>
+            <li><a href="#sakura">Sacred Sakura</a></li>
+            <li><a href="#miko">Lady Guuji</a></li>
+            <li><a href="#fortune">Draw Fortune</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- SEÇÃO 1: CABEÇALHO E INTRODUÇÃO -->
+    <header class="shrine-header">
+        <h1>Nakunami Shrine</h1>
+        <h2>Greetings fellow traveler! 🦊</h2>
+        <p class="subtitle">Welcome to the sacred shrine of Nakurami</p>
+    </header>
+
+    <section class="intro-section">
+        <p>As the head shrine maiden, I am honored to guide you through our traditions and rituals.</p>
+        <p>Here, we worship the divine fox spirit, Nakurami, who is said to bring good fortune and prosperity to those who pay their respects.</p>
+        <p>High atop Mt. Yougou, where the clouds meet the earth, stands the Grand Narukami Shrine. As the most important shrine in Inazuma, it remains a sanctuary of peace and divine protection, overseen by the watchful gaze of the Lady Guuji.</p>
+    </section>
+
+    <!-- SEÇÃO 2: YAE MIKO'S MESSAGE -->
+    <section class="miko-message">
+        <h3>Yae Miko's Message 📜</h3>
+        <div class="miko-box">
+            <p class="miko-text">"Oh? A visitor at this hour? I hope you brought some Fried Tofu..."</p>
+        </div>
+        <p>"Are you here to draw a fortune slip, little one? Don't look so nervous. Even if it says 'Great Misfortune,' I might be persuaded to help you change your fate... for a price, of course. After all, what is life without a little bit of chaos and a lot of fun?"</p>
+    </section>
+
+    <!-- SEÇÃO 3: SACRED SAKURA -->
+    <section id="sakura" class="page-section">
+        <h2>The Sacred Sakura ⚡</h2>
+        <p>The climb to the Grand Narukami Shrine is a journey of purification. Thousands of vibrant red Torii gates line the winding stairs of Mount Yougou, each one a silent witness to the prayers of countless souls. As the air grows thin and the scent of Sakura blossoms fills the wind, the noise of the world below fades into the hum of sacred thunder.</p>
+        <p>Since ancient times, the shrine has stood as the ultimate shield against the "Sacred Sakura Cleansing." The roots of the divine tree reach deep into the earth, drawing out the filth and miasma that plague the land. It is here, under the moon's silver glow, that the shrine maidens perform their dances to ensure the eternity of Narukami's grace.</p>
+        <p>Present your Electro Sigils to the Sacred Sakura to deepen your favor with the divine. As the tree grows stronger, so too shall the blessings bestowed upon you during your travels across the islands of Eternity.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- SEÇÃO 4: LADY GUUJI YAE MIKO -->
+    <section id="miko" class="page-section">
+        <h2>Lady Guuji Yae Miko 🦊</h2>
+        <div class="miko-profile">
+            <div class="miko-avatar">
+                <img src="https://i.pinimg.com/736x/ce/73/35/ce7335937441da6026784d7358146c18.jpg" alt="Yae Miko" class="miko-img">
+            </div>
+            <div class="miko-info">
+                <h3>The Guuji</h3>
+                <p class="subtitle">Editor-in-Chief of the Yae Publishing House</p>
+                <span class="vision-tag">Electro 🌩️</span>
+            </div>
+        </div>
+        <p>The shrine is managed by Yae Miko, the "Guuji" of the Grand Narukami Shrine and Editor-in-Chief of the Yae Publishing House. Wise, beautiful, and unpredictable, she ensures that the traditions of the shrine are kept—often with a playful twist that only a kitsune could devise.</p>
+        <p>Keep a respectful silence as you pass the stone Sky Kitsune and Earth Kitsune statues. They are the eyes and ears of the Lady Guuji. Legends say that for those who show true devotion, these stone guardians might whisper secrets of the past or grant a fleeting glimpse into a future yet to be written.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- SEÇÃO 5: OMIKUJI - FORTUNE SLIPS -->
+    <section id="fortune" class="page-section">
+        <h2>Grand Narukami Fortune 🧧</h2>
+        <p>Are you curious about what the stars have in store? Draw a Fortune Slip at the shrine booth. Whether you receive "Great Misfortune" or "Great Fortune," remember that destiny is as fleeting as a lightning flash, yet as enduring as the mountain itself.</p>
+        <div class="omikuji-box">
+            <p id="fortune-text">Shake the box to see your destiny...</p>
+            <button class="btn-fortune" onclick="drawFortune()">Draw an Omikuji 🧧</button>
+        </div>
+        <p id="yae-quote" class="yae-quote"></p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- SEÇÃO 6: SHRINE RULES -->
+    <section class="rules-section">
+        <h2>Shrine Decree: Rules for Visitors ⚖️</h2>
+        <table class="shrine-table">
+            <thead>
+                <tr>
+                    <th>Action</th>
+                    <th>Shrine Law</th>
+                    <th>Guuji's Comment 🦊</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Offerings</strong></td>
+                    <td>Only Electro Sigils or Fried Tofu.</td>
+                    <td>"The Sakura has expensive taste, darling."</td>
+                </tr>
+                <tr>
+                    <td><strong>Spirits</strong></td>
+                    <td>Do not disturb the Fox Statues.</td>
+                    <td>"They see everything. Even your bad luck."</td>
+                </tr>
+                <tr>
+                    <td><strong>Fortune Slips</strong></td>
+                    <td>One Omikuji per day only.</td>
+                    <td>"Don't blame the paper for your fate."</td>
+                </tr>
+                <tr>
+                    <td><strong>Photography</strong></td>
+                    <td>Allowed, but keep it elegant.</td>
+                    <td>"Make sure to catch my best angle."</td>
+                </tr>
+                <tr>
+                    <td><strong>Climbing</strong></td>
+                    <td>Use the stairs, not the cliffs.</td>
+                    <td>"Unless you have a Glider and no fear."</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <hr class="divider">
+
+    <!-- SEÇÃO 7: CONTACT & WISHES FORM -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="header">
+                <h2>Send Your Wishes to the Grand Yae Miko ✨</h2>
+                <p>May the Narukami light guide your path.</p>
+            </div>
+            <form action="https://formspree.io/f/mpqjbvan" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Wish or Offering" required></textarea>
+                <button type="submit" class="btn-submit">Submit Offering ✨</button>
+            </form>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- SEÇÃO 8: GUUJI YAE MIKO BIO -->
+    <section class="bio-shrine">
+        <div class="bio-content">
+            <h2 class="bio-title">About Guuji Yae Miko 🦊</h2>
+            <div class="bio-text">
+                <p>"Sou a Grande Sacerdotisa do Santuário Narukami e a editora-chefe da Editora Yae. Mas, entre nós, essas são apenas as facetas mais... formais da minha existência."</p>
+                <p>"Muitos me conhecem como a 'Kitsune Astuta', e não se enganem: eu aprecio cada boato. Passo meus dias observando os mortais de Inazuma do alto do Monte Yougou, bebendo chá e garantindo que o destino siga um curso... interessante."</p>
+                <p>"Se você veio em busca de uma bênção, deixe sua oferenda. Se veio em busca de uma boa história, talvez eu tenha uma ou duas para contar. Afinal, a eternidade seria um tédio insuportável sem um pouco de diversão, não acha?"</p>
+            </div>
+            <div class="bio-signature">Finalizado com a luz de Narukami. ⚡</div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 9: FOOTER COM REDES SOCIAIS -->
+    <footer class="social-footer">
+        <h3>Follow the Shrine</h3>
+        <div class="social-container">
+            <a href="https://discord.com/invite/yae" target="_blank" class="social-link discord" title="Discord">
+                <i class="fab fa-discord"></i>
+            </a>
+            <a href="https://www.instagram.com/damien_siinamota/" target="_blank" class="social-link instagram" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/damien.samael.soares.brito/" target="_blank" class="social-link facebook" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="mailto:damiensoaresbrito@gmail.com" class="social-link email" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.youtube.com" target="_blank" class="social-link youtube" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" class="social-link twitter" title="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+        <p class="shrine-blessing">May the Narukami light guide your path ⚡</p>
+    </footer>
+
+    <!-- ADMIN PANEL (Hidden) -->
+    <div id="roblox-admin">
+        <h3>🦊 YAE ADMIN PANEL</h3>
+        <p>Target User: <span id="target-display">Visitor_1</span></p>
+        <div class="admin-buttons">
+            <button onclick="adminAction('WARN')">⚠️ WARN USER</button>
+            <button onclick="adminAction('KICK')">👢 KICK USER</button>
+            <button onclick="adminAction('BAN')">🚫 BAN USER</button>
+            <button onclick="closeAdmin()">Close</button>
+        </div>
+    </div>
+
+    <!-- STYLES FOR SPARKS AND ANIMATIONS -->
+    <style>
+        .electro-spark {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #a333ff;
+            box-shadow: 0 0 15px #ff77ff;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: explode 0.6s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(4); opacity: 0; }
+        }
+
+        .typing-text {
+            color: #ffb7c5;
+            text-shadow: 0 0 10px rgba(255, 183, 197, 0.8);
+            font-family: 'Cinzel', serif;
+        }
+    </style>
+
+    <!-- JAVASCRIPT SCRIPTS -->
     <script>
-        // O código JavaScript entra aqui!
+        // ===== LOADER =====
         window.addEventListener('load', () => {
             const bar = document.getElementById('loading-bar');
             const wrapper = document.getElementById('loader-wrapper');
             
-            // Lógica da barra de carregamento...
-            let width = 100; 
+            let width = 100;
             bar.style.width = width + '%';
             
             setTimeout(() => {
                 wrapper.style.display = 'none';
-            }, 1000);
+                thunderFlash();
+            }, 1500);
         });
-    </script>
-</body>
-</html>
 
-</body>
-<script>// Efeito de "Flash" na tela
-function thunderFlash() {
-    const flash = document.createElement('div');
-    flash.style.cssText = `
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: white; opacity: 0; z-index: 10001; pointer-events: none;
-    `;
-    document.body.appendChild(flash);
+        // ===== THUNDER FLASH EFFECT =====
+        function thunderFlash() {
+            const flash = document.createElement('div');
+            flash.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: white; opacity: 0; z-index: 10001; pointer-events: none;
+            `;
+            document.body.appendChild(flash);
 
-    // Pisca 2 vezes rápido
-    setTimeout(() => flash.style.opacity = '0.5', 100);
-    setTimeout(() => flash.style.opacity = '0', 200);
-    setTimeout(() => flash.style.opacity = '0.8', 300);
-    setTimeout(() => {
-        flash.style.opacity = '0';
-        setTimeout(() => flash.remove(), 500);
-    }, 400);
-}
+            setTimeout(() => flash.style.opacity = '0.5', 100);
+            setTimeout(() => flash.style.opacity = '0', 200);
+            setTimeout(() => flash.style.opacity = '0.8', 300);
+            setTimeout(() => {
+                flash.style.opacity = '0';
+                setTimeout(() => flash.remove(), 500);
+            }, 400);
+        }
 
-// Chama o trovão assim que o loader sumir
-window.addEventListener('load', () => {
-    setTimeout(thunderFlash, 1500); 
-});
-</script>
-<button onclick="drawFortune()">Draw an Omikuji 🧧</button>
-
-<!-- Onde a mensagem da sorte vai aparecer -->
-<p id="fortune-display" style="color: #ffb7c5; font-weight: bold; margin-top: 10px;"></p>
-<!-- Este é o "cérebro" (JavaScript) que faz o botão funcionar -->
-<script>
-    function drawFortune() {
-        // 1. Lista de frases de sorte da Yae Miko
-        const fortunes = [
+        // ===== FORTUNE DRAWING =====
+        const allFortunes = [
             "✨ Grande Sorte: A luz de Narukami brilha intensamente sobre você!",
             "🌸 Boa Sorte: Um mensageiro raposa trará boas notícias hoje.",
             "⚡ Sorte Modesta: Cuidado, até a Guuji Yae tem seus truques...",
             "🦊 Sorte Especial: Você encontrará um tesouro sob a Sakura Sagrada!",
-            "🎋 Sorte Futura: Grandes mudanças estão por vir em Inazuma."
+            "🎋 Sorte Futura: Grandes mudanças estão por vir em Inazuma.",
+            "✨ Great Fortune: The lightning strikes twice in your favor today!",
+            "🌸 Good Luck: A fox's blessing follows your every step.",
+            "⚡ Modest Luck: Be careful with Electro, but victory is yours.",
+            "🦊 Neutral: The Lady Guuji is watching... don't be boring."
         ];
 
-        // 2. Escolhe uma frase aleatória
-        const randomIndex = Math.floor(Math.random() * fortunes.length);
-        const result = fortunes[randomIndex];
-
-        // 3. Mostra um alerta na tela (isso o professor vai ver na hora!)
-        alert("🧧 Seu Omikuji diz: \n\n" + result);
-        
-        // 4. Se você tiver um elemento com id="fortune-text", ele escreve lá também
-        const display = document.getElementById('fortune-text');
-        if (display) {
-            display.innerText = result;
-            display.style.opacity = "1";
+        function drawFortune() {
+            const randomIndex = Math.floor(Math.random() * allFortunes.length);
+            const result = allFortunes[randomIndex];
+            document.getElementById('fortune-text').innerText = result;
+            sendSiteAnalytics("Tirou sorte: " + result);
         }
-    }
-</script>
-<!-- Link de redirecionamento para o site da UMAA -->
-<a href="https://www.umaa.net" target="_blank" style="color: #ffb7c5; text-decoration: none; font-weight: bold;">
-    Visit U/M/A/A Official 🦊
-</a>
-<button onclick="openScroll()" class="btn-shrine">Read Secret Scroll 🦊</button>
-<section class="bio-shrine">
-    <div class="bio-content">
-        <h2 class="bio-title">Guuji Yae Miko 🦊</h2>
-        <div class="bio-text">
-            <p>"Sou a Grande Sacerdotisa do Santuário Narukami e a editora-chefe da Editora Yae. Mas, entre nós, essas são apenas as facetas mais... formais da minha existência."</p>
-            
-            <p>"Muitos me conhecem como a 'Kitsune Astuta', e não se enganem: eu aprecio cada boato. Passo meus dias observando os mortais de Inazuma do alto do Monte Yougou, bebendo chá e garantindo que o destino siga um curso... interessante."</p>
-            
-            <p>"Se você veio em busca de uma bênção, deixe sua oferenda. Se veio em busca de uma boa história, talvez eu tenha uma ou duas para contar. Afinal, a eternidade seria um tédio insuportável sem um pouco de diversão, não acha?"</p>
-        </div>
-        <div class="bio-signature">Finalizado com a luz de Narukami.</div>
-    </div>
-</section>
 
-<!-- REDES SOCIAIS -->
-<footer class="social-footer">
-    <h3>Follow the Shrine</h3>
-    <div class="social-container">
-        <a href="https://discord.com/invite/yae" target="_blank" class="social-link discord" title="Discord">
-            <i class="fab fa-discord"></i>
-        </a>
-        <a href="https://www.instagram.com/damien_siinamota/" target="_blank" class="social-link instagram" title="Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.facebook.com/damien.samael.soares.brito/" target="_blank" class="social-link facebook" title="Facebook">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="mailto:damiensoaresbrito@gmail.com" class="social-link email" title="Email">
-            <i class="fas fa-envelope"></i>
-        </a>
-        <a href="https://www.youtube.com" target="_blank" class="social-link youtube" title="YouTube">
-            <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://twitter.com" target="_blank" class="social-link twitter" title="Twitter">
-            <i class="fab fa-twitter"></i>
-        </a>
-    </div>
-    <p class="shrine-blessing">May the Narukami light guide your path ⚡</p>
-</footer>
+        // ===== RANDOM YAE QUOTE =====
+        const quotes = [
+            '"Nothing lasts forever."',
+            '"Show me your bravery!"',
+            '"Come on, don\'t be shy."',
+            '"The fox is watching..."',
+            '"Chaos is just misunderstood order."'
+        ];
 
-<script>async function sendSiteAnalytics(eventDetail) {
-    // Coleta dados interessantes (e éticos) do acesso
-    const data = {
-        email: "damiensoaresbrito@gmail.com", // Seu e-mail
-        message: `Relatório de Visita no Santuário:
-        - Navegador: ${navigator.userAgent}
-        - Idioma: ${navigator.language}
-        - Tela: ${window.screen.width}x${window.screen.height}
-        - Ação: ${eventDetail}`
-    };
+        document.addEventListener('DOMContentLoaded', () => {
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('yae-quote').innerText = randomQuote;
+        });
 
-    // Envia silenciosamente para o seu endpoint do Formspree
-    try {
-        console.log("Offerings sent to Lady Guuji...");
-    } catch (error) {
-        console.error("The fox messenger failed:", error);
-    }
-}
+        // ===== ELECTRO SPARKS ON CLICK =====
+        document.addEventListener('click', (e) => {
+            const spark = document.createElement('div');
+            spark.className = 'electro-spark';
+            spark.style.left = e.pageX + 'px';
+            spark.style.top = e.pageY + 'px';
+            document.body.appendChild(spark);
+            setTimeout(() => spark.remove(), 600);
+        });
 
-// Exemplo: Enviar os dados quando o usuário tirar um Omikuji
-function drawFortune() {
-    const fortunes = ["Great Fortune", "Good Fortune", "Modest Luck"];
-    const lucky = fortunes[Math.floor(Math.random() * fortunes.length)];
-    
-    alert("Your Omikuji: " + lucky);
-    
-    // ENVIO AUTOMÁTICO: Avisa seu e-mail que alguém tirou uma sorte
-    sendSiteAnalytics("O usuário tirou a sorte: " + lucky);
-}
-</script>
-<div id="roblox-admin" style="display:none; position:fixed; top:20%; left:50%; transform:translate(-50%, -20%); background:#1a1a1a; border:3px solid #ffb7c5; padding:20px; z-index:100000; color:white; font-family:'Courier New', monospace; width:350px; box-shadow: 0 0 50px #a333ff;">
-    <h3 style="color:#ffb7c5; text-align:center;">🦊 YAE ADMIN PANEL</h3>
-    <p style="font-size:12px; color:#aaa;">Target User: <span id="target-display">Visitor_1</span></p>
-    
-    <div style="display:flex; flex-direction:column; gap:10px;">
-        <button onclick="adminAction('WARN')" style="background:#ffcc00; border:none; padding:10px; cursor:pointer;">⚠️ WARN USER</button>
-        <button onclick="adminAction('KICK')" style="background:#ff6600; border:none; padding:10px; cursor:pointer;">👢 KICK USER</button>
-        <button onclick="adminAction('BAN')" style="background:#ff0000; border:none; padding:10px; color:white; cursor:pointer; font-weight:bold;">🚫 BAN USER</button>
-        <button onclick="closeAdmin()" style="background:#444; border:none; color:white; padding:5px; margin-top:10px; cursor:pointer;">Close</button>
-    </div>
-</div>
-<script>// 1. Verificação de Ban ao entrar no site
-window.onload = function() {
-    if (localStorage.getItem("yae_status") === "BANNED") {
-        document.body.innerHTML = "<h1 style='color:red; text-align:center; margin-top:20vh;'>🚫 YOU ARE BANNED FROM THE SHRINE.<br><br>Reason: Disrupting the Narukami Light.</h1>";
-    }
-};
+        // ===== ADMIN PANEL =====
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.shiftKey && e.key === 'P') {
+                document.getElementById('roblox-admin').style.display = 'block';
+            }
+        });
 
-// 2. Atalho para abrir o painel: Ctrl + Shift + P
-document.addEventListener('keydown', (e) => {
-    if (e.ctrlKey && e.shiftKey && e.key === 'P') {
-        document.getElementById('roblox-admin').style.display = 'block';
-    }
-});
-
-// 3. Funções de Moderação
-function adminAction(type) {
-    if (type === 'WARN') {
-        alert("⚠️ [SYSTEM]: A warning has been sent to the visitor.");
-    } 
-    else if (type === 'KICK') {
-        alert("👢 [SYSTEM]: Kicking user...");
-        window.location.href = "https://www.google.com"; // "Chuta" a pessoa para fora do site
-    } 
-    else if (type === 'BAN') {
-        if (confirm("Are you sure you want to PERMABAN this user?")) {
-            localStorage.setItem("yae_status", "BANNED");
-            alert("🚫 User Banned. Refreshing page to apply...");
-            location.reload();
+        function adminAction(type) {
+            if (type === 'WARN') {
+                alert("⚠️ [SYSTEM]: A warning has been sent to the visitor.");
+            } else if (type === 'KICK') {
+                alert("👢 [SYSTEM]: Kicking user...");
+                window.location.href = "https://www.google.com";
+            } else if (type === 'BAN') {
+                if (confirm("Are you sure you want to PERMABAN this user?")) {
+                    localStorage.setItem("yae_status", "BANNED");
+                    alert("🚫 User Banned. Refreshing page to apply...");
+                    location.reload();
+                }
+            }
         }
-    }
-}
 
-function closeAdmin() {
-    document.getElementById('roblox-admin').style.display = 'none';
-}
-</script>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/69a106bc730f651c3613fc8e/1jieg4k37';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-<button id="reportButton" class="miko-btn">Relatar Problema</button>
+        function closeAdmin() {
+            document.getElementById('roblox-admin').style.display = 'none';
+        }
 
-<script>
-  document.getElementById("reportButton").onclick = function() {
-    // Substitua 'SEU_USUARIO' e 'SEU_REPOSITORIO' pelos seus dados
-    const url = "https://github.com...";
-    window.open(url, '_blank');
-  };
-</script>
-<!-- Botão que abre o formulário (estilo Miko) -->
-<div id="report-container">
-  <form action="https://formspree.io/f/mpqjbvan" method="POST" id="report-form">
-    <label>
-      Sua denúncia/feedback:
-      <textarea name="message" placeholder="O que aconteceu no Santuário?"></textarea>
-    </label>
-    
-    <!-- O campo abaixo garante que a resposta vá para o e-mail do usuário também -->
-    <label> Seu e-mail:
-      <input type="email" name="email">
-    </label>
+        // ===== BAN CHECK =====
+        window.addEventListener('load', () => {
+            if (localStorage.getItem("yae_status") === "BANNED") {
+                document.body.innerHTML = '<h1 style="color:red; text-align:center; margin-top:20vh;">🚫 YOU ARE BANNED FROM THE SHRINE.<br><br>Reason: Disrupting the Narukami Light.</h1>';
+            }
+        });
 
-    <button type="submit" class="miko-btn">Enviar para a Editora Yae</button>
-  </form>
-</div>
+        // ===== FORM SUBMISSION =====
+        document.querySelector('form')?.addEventListener('submit', () => {
+            alert("May the Narukami light guide your path... Your offering was sent! ✨");
+        });
+
+        // ===== ANALYTICS =====
+        async function sendSiteAnalytics(eventDetail) {
+            try {
+                console.log("Offerings sent to Lady Guuji...", eventDetail);
+            } catch (error) {
+                console.error("The fox messenger failed:", error);
+            }
+        }
+    </script>
+
+    <!-- TAWK.TO CHAT -->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/69a106bc730f651c3613fc8e/1jieg4k37';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+
+</body>
+</html>
 
