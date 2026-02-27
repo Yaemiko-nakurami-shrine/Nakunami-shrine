@@ -314,3 +314,103 @@ window.addEventListener('load', () => {
     setTimeout(thunderFlash, 1500); 
 });
 </script>
+<button onclick="drawFortune()">Draw an Omikuji 🧧</button>
+
+<!-- Onde a mensagem da sorte vai aparecer -->
+<p id="fortune-display" style="color: #ffb7c5; font-weight: bold; margin-top: 10px;"></p>
+<!-- Este é o "cérebro" (JavaScript) que faz o botão funcionar -->
+<script>
+    function drawFortune() {
+        // 1. Lista de frases de sorte da Yae Miko
+        const fortunes = [
+            "✨ Grande Sorte: A luz de Narukami brilha intensamente sobre você!",
+            "🌸 Boa Sorte: Um mensageiro raposa trará boas notícias hoje.",
+            "⚡ Sorte Modesta: Cuidado, até a Guuji Yae tem seus truques...",
+            "🦊 Sorte Especial: Você encontrará um tesouro sob a Sakura Sagrada!",
+            "🎋 Sorte Futura: Grandes mudanças estão por vir em Inazuma."
+        ];
+
+        // 2. Escolhe uma frase aleatória
+        const randomIndex = Math.floor(Math.random() * fortunes.length);
+        const result = fortunes[randomIndex];
+
+        // 3. Mostra um alerta na tela (isso o professor vai ver na hora!)
+        alert("🧧 Seu Omikuji diz: \n\n" + result);
+        
+        // 4. Se você tiver um elemento com id="fortune-text", ele escreve lá também
+        const display = document.getElementById('fortune-text');
+        if (display) {
+            display.innerText = result;
+            display.style.opacity = "1";
+        }
+    }
+</script>
+<!-- Link de redirecionamento para o site da UMAA -->
+<a href="https://www.umaa.net" target="_blank" style="color: #ffb7c5; text-decoration: none; font-weight: bold;">
+    Visit U/M/A/A Official 🦊
+</a>
+<button onclick="openScroll()" class="btn-shrine">Read Secret Scroll 🦊</button>
+
+<div id="shrine-modal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeScroll()">&times;</span>
+        <h2 style="font-family: 'Cinzel', serif;">Sacred Decree</h2>
+        <p>"Knowledge is the only treasure that increases when shared."</p>
+        <img src="https://i.pinimg.com" width="100">
+    </div>
+</div>
+<script>function openScroll() {
+    document.getElementById('shrine-modal').style.display = 'flex';
+}
+function closeScroll() {
+    document.getElementById('shrine-modal').style.display = 'none';
+}
+</script>
+<div class="book-container">
+    <div class="book">
+        <!-- Capa -->
+        <div class="page cover" onclick="flipPage(this)">
+            <h2 style="font-family: 'Cinzel', serif;">The Fox's Chronicles</h2>
+            <img src="https://i.pinimg.com" width="120">
+            <p>Click to open 🦊</p>
+        </div>
+        
+        <!-- Página 1 (Conteúdo) -->
+        <div class="page" onclick="flipPage(this)">
+            <h3>Chapter I: Narukami</h3>
+            <p>"Nothing lasts forever, but memories are etched in the Sakura."</p>
+            <p style="font-size: 12px; margin-top: 20px;">- Lady Guuji</p>
+        </div>
+
+        <!-- Página 2 (Final) -->
+        <div class="page last-page">
+            <h3>The End</h3>
+            <p>May the Guuji's blessings be with you.</p>
+            <button onclick="resetBook()" style="background:#ffb7c5; border:none; padding:5px 10px; cursor:pointer;">Close Book</button>
+        </div>
+    </div>
+</div>
+<script>function flipPage(element) {
+    // Adiciona a classe que gira a página
+    element.classList.add('flipped');
+    
+    // Diminui o z-index para a próxima página aparecer
+    setTimeout(() => {
+        element.style.zIndex = "1";
+    }, 400);
+}
+
+function resetBook() {
+    // Remove a classe de todas as páginas para fechar o livro
+    const pages = document.querySelectorAll('.page');
+    pages.forEach((page, index) => {
+        page.classList.remove('flipped');
+        // Restaura o z-index original (capa por cima)
+        if(page.classList.contains('cover')) {
+            page.style.zIndex = "5";
+        } else {
+            page.style.zIndex = "2";
+        }
+    });
+}
+</script>
