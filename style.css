@@ -305,12 +305,33 @@ input:hover, textarea:hover {
 
 .fox-loader {
     text-align: center;
+    animation: fadeInLoader 0.5s ease;
 }
 
-.fox-loader img {
-    width: 150px;
+.fox-loader img,
+.yae-loader-img {
+    width: 180px;
+    height: auto;
     margin-bottom: 20px;
-    filter: drop-shadow(0 0 10px #ffb7c5);
+    filter: drop-shadow(0 0 15px #ffb7c5) drop-shadow(0 0 30px #a333ff);
+    animation: spin-gentle 3s linear infinite, pulse-glow 2s ease-in-out infinite;
+    border-radius: 20px;
+}
+
+@keyframes spin-gentle {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(5deg) scale(1.05); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { filter: drop-shadow(0 0 15px #ffb7c5) drop-shadow(0 0 30px #a333ff); }
+    50% { filter: drop-shadow(0 0 25px #ffb7c5) drop-shadow(0 0 40px #a333ff); }
+}
+
+@keyframes fadeInLoader {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .loading-bar-container {
@@ -348,54 +369,6 @@ input:hover, textarea:hover {
 .loader-hidden {
     opacity: 0;
     visibility: hidden;
-}
-#loader-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #1a1a1a; /* Cor escura elegante */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000; /* Fica na frente de tudo */
-    transition: opacity 0.8s ease, visibility 0.8s;
-}
-
-.fox-loader {
-    text-align: center;
-}
-
-.fox-loader img {
-    width: 150px;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 10px #ffb7c5);
-}
-
-.loading-bar-container {
-    width: 250px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-#loading-bar {
-    width: 0%;
-    height: 100%;
-    background: linear-gradient(90deg, #ffb7c5, #a333ff);
-    box-shadow: 0 0 10px #ffb7c5;
-    transition: width 0.4s ease;
-}
-
-#loading-text {
-    color: #ffb7c5;
-    margin-top: 15px;
-    font-family: 'Cinzel', serif;
-    letter-spacing: 2px;
-    animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
