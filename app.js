@@ -120,9 +120,66 @@ function setupAuthSystem() {
                 password: 'teyvat2025',
                 role: ROLES.VISITOR,
                 createdAt: new Date().toISOString()
+            },
+            { 
+                name: 'Fischl', 
+                email: 'fischl@investigators.com', 
+                password: 'investigator123',
+                role: ROLES.MEMBER,
+                createdAt: new Date().toISOString()
+            },
+            { 
+                name: 'Kazuha', 
+                email: 'kazuha@wanderer.com', 
+                password: 'kazuha2025',
+                role: ROLES.MEMBER,
+                createdAt: new Date().toISOString()
             }
         ];
         localStorage.setItem('shrine_users', JSON.stringify(demoUsers));
+    }
+    
+    // Inicializar posts de teste
+    if (!localStorage.getItem('shrine_posts')) {
+        const demoPosts = [
+            {
+                id: 'post_001',
+                authorEmail: 'miko@shrine.jp',
+                authorName: 'Miko Devotee',
+                content: '✨ Que dia lindo no santuário! A energia está forte hoje!',
+                likes: ['traveler@teyvat.com'],
+                comments: [{
+                    id: 'comment_001',
+                    authorEmail: 'traveler@teyvat.com',
+                    authorName: 'Traveler',
+                    content: 'Sim, a Guuji está em ótima forma! 🦊',
+                    timestamp: new Date().toISOString()
+                }],
+                timestamp: new Date(Date.now() - 3600000).toISOString(),
+                displayTime: new Date(Date.now() - 3600000).toLocaleString('pt-BR')
+            },
+            {
+                id: 'post_002',
+                authorEmail: 'fischl@investigators.com',
+                authorName: 'Fischl',
+                content: '⚡ Como investigadora competente, investigarei este santuário interessante!',
+                likes: [],
+                comments: [],
+                timestamp: new Date(Date.now() - 7200000).toISOString(),
+                displayTime: new Date(Date.now() - 7200000).toLocaleString('pt-BR')
+            }
+        ];
+        localStorage.setItem('shrine_posts', JSON.stringify(demoPosts));
+    }
+    
+    // Inicializar followers de teste
+    if (!localStorage.getItem('shrine_followers')) {
+        const demoFollowers = {
+            'miko@shrine.jp': ['traveler@teyvat.com', 'kazuha@wanderer.com'],
+            'fischl@investigators.com': ['traveler@teyvat.com'],
+            'kazuha@wanderer.com': []
+        };
+        localStorage.setItem('shrine_followers', JSON.stringify(demoFollowers));
     }
     
     updateAuthButton();
@@ -155,7 +212,8 @@ function handleLogin(event) {
         // Log activity
         logActivity('LOGIN', user.email, user.name);
         
-        alert(`🦊 Bem-vindo de volta, ${user.name}! (Papel: ${user.role})`);
+        // mostrar mensagem animada de boas-vindas
+        showWelcome(user.name);
         updateAuthButton();
         closeAuthModal();
         event.target.reset();
@@ -756,6 +814,96 @@ function switchSocialTab(tab) {
     
     if (tab === 'profile') loadUserProfile();
     if (tab === 'feed') loadFeed();
+    if (tab === 'followers') loadFollowers();
+    if (tab === 'explore') loadExplore();
+}
+
+// Carregar seguidores
+function loadFollowers() {
+    const currentUser = JSON.parse(localStorage.getItem('current_user'));
+    if (!currentUser) return;
+    
+    const followersList = document.getElementById('followers-list');
+    const followingList = document.getElementById('following-list');
+    
+    let followers = JSON.parse(localStorage.getItem('shrine_followers') || '{}');
+    
+    // Meus seguidores
+    const myFollowers = followers[currentUser.email] || [];
+    if (followersList) {
+        if (myFollowers.length === 0) {
+            followersList.innerHTML = '<p style="color: #999;">Você ainda não tem seguidores</p>';
+        } else {
+            followersList.innerHTML = myFollowers.map(email => `
+                <div class="user-card">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-name">${email}</div>
+                </div>
+            `).join('');
+        }
+    }
+    
+    // Estou seguindo
+    const amFollowing = Object.keys(followers).filter(k => (followers[k] || []).includes(currentUser.email));
+    if (followingList) {
+        if (amFollowing.length === 0) {
+            followingList.innerHTML = '<p style="color: #999;">Você não está seguindo ninguém</p>';
+        } else {
+            followingList.innerHTML = amFollowing.map(email => `
+                <div class="user-card">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-name">${email}</div>
+                </div>
+            `).join('');
+        }
+    }
+}
+
+// Explorar usuários
+function loadExplore() {
+    const currentUser = JSON.parse(localStorage.getItem('current_user'));
+    if (!currentUser) return;
+    
+    const exploreContainer = document.getElementById('explore-users');
+    let users = JSON.parse(localStorage.getItem('shrine_users') || '[]');
+    
+    // Filtrar usuários (excluir o próprio usuário)
+    users = users.filter(u => u.email !== currentUser.email);
+    
+    if (exploreContainer) {
+        if (users.length === 0) {
+            exploreContainer.innerHTML = '<p style="color: #999;">Nenhum usuário disponível para explorar</p>';
+        } else {
+            exploreContainer.innerHTML = users.map(user => `
+                <div class="user-card">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-info">
+                        <div class="user-name">${user.name}</div>
+                        <div class="user-email">${user.email}</div>
+                        <div class="user-role">🎭 ${user.role}</div>
+                    </div>
+                    <button class="follow-btn" onclick="followExploreUser('${user.email}', this)">Seguir</button>
+                </div>
+            `).join('');
+        }
+    }
+}
+
+// Seguir usuário da aba explorar
+function followExploreUser(userEmail, btn) {
+    const currentUser = JSON.parse(localStorage.getItem('current_user'));
+    if (!currentUser) return;
+    
+    let followers = JSON.parse(localStorage.getItem('shrine_followers') || '{}');
+    if (!followers[userEmail]) followers[userEmail] = [];
+    
+    if (!followers[userEmail].includes(currentUser.email)) {
+        followers[userEmail].push(currentUser.email);
+        localStorage.setItem('shrine_followers', JSON.stringify(followers));
+        btn.textContent = '✅ Seguindo';
+        btn.disabled = true;
+        btn.style.opacity = '0.5';
+    }
 }
 
 // Gerar ID único
@@ -776,28 +924,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// ===== BAN CHECK =====
+// ===== BAN SCREEN LOGIC =====
+function showBanScreen() {
+    const banScreen = document.getElementById('ban-screen');
+    if (banScreen) {
+        banScreen.style.display = 'flex';
+    }
+}
+
+// ===== WELCOME SCREEN =====
+function showWelcome(name) {
+    const screen = document.getElementById('welcome-screen');
+    const nameEl = document.getElementById('welcome-name');
+    if (screen && nameEl) {
+        nameEl.textContent = name;
+        screen.style.display = 'flex';
+        // after 2s fade out
+        setTimeout(() => {
+            screen.style.transition = 'opacity 0.5s';
+            screen.style.opacity = '0';
+            setTimeout(() => {
+                screen.style.display = 'none';
+                screen.style.opacity = '1';
+            }, 500);
+        }, 2000);
+    }
+}
+
 window.addEventListener('load', () => {
     if (localStorage.getItem('yae_status') === 'BANNED') {
-        document.body.innerHTML = `
-            <div style="
-                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-                color: #d32f2f;
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-family: 'Cinzel', serif;
-                text-align: center;
-                padding: 20px;
-            ">
-                <div>
-                    <h1 style="font-size: 3rem; margin: 0;">🚫 VOCÊ FOI BANIDO DO SANTUÁRIO</h1>
-                    <p style="font-size: 1.3rem; margin-top: 20px;">Razão: Perturbação da Luz de Narukami</p>
-                    <p style="margin-top: 30px; opacity: 0.7;">A Guuji Yae Miko ordenou sua expulsão permanente.</p>
-                </div>
-            </div>
-        `;
+        showBanScreen();
     }
 });
 

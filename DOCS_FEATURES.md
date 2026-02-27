@@ -51,6 +51,16 @@
 
 ---
 
+## 🎬 TELAS & ANIMAÇÕES ESPECIAIS
+- **Loader Inicial:** Tela escura com raposa giratória e barra de progresso, animação de trovão; aparece no carregamento (1.5 s).
+- **Tela de Boas-Vindas:** Overlay colorido com confetes e texto personalizado após login; desaparece automaticamente.
+- **Tela de Manutenção:** Sobreposição violeta com partículas eletro, status dinâmico e animações de raposa; ativada/desativada pelo admin.
+- **Tela de Banimento:** Fundo escuro com conteúdo tremendo e ícone pulsante, exibida quando `yae_status === 'BANNED'`.
+
+Cada tela utiliza `@keyframes` e transições CSS para efeitos visuais legantes.
+
+---
+
 ## 👥 ROLES (Papéis/Controle de Acesso)
 
 ### Visitante (👤)

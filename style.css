@@ -670,6 +670,127 @@ input:hover, textarea:hover {
     pointer-events: none;
 }
 
+/* ==================== BAN SCREEN ==================== */
+.ban-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10001;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a0a0a 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadetoRed 1.5s ease-in-out forwards;
+}
+
+@keyframes fadetoRed {
+    0% { background: rgba(0,0,0,0); }
+    100% { background: linear-gradient(135deg, #1a1a1a 0%, #2a0a0a 100%); }
+}
+
+.ban-content {
+    text-align: center;
+    color: #ff4444;
+    font-family: 'Cinzel', serif;
+    backdrop-filter: blur(15px);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 50px 30px;
+    border-radius: 25px;
+    border: 3px solid #ff4444;
+    box-shadow: 0 0 30px rgba(255, 68, 68, 0.7);
+    animation: shake 0.8s ease-in-out infinite;
+}
+
+.ban-header .ban-icon {
+    font-size: 80px;
+    animation: pulseRed 1s infinite;
+}
+
+@keyframes pulseRed {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.ban-message {
+    font-size: 1.3rem;
+    margin-top: 20px;
+    animation: neonRed 1.5s infinite alternate;
+}
+
+.ban-sub {
+    font-size: 1rem;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+@keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+
+@keyframes neonRed {
+    0% { text-shadow: 0 0 10px #ff4444, 0 0 20px #ff4444; }
+    100% { text-shadow: 0 0 20px #ff4444, 0 0 40px #ff4444; }
+}
+
+/* Responsivo for ban screen */
+@media (max-width: 768px) {
+    .ban-content {
+        padding: 30px 20px;
+    }
+    .ban-header .ban-icon {
+        font-size: 60px;
+    }
+}
+
+/* ==================== WELCOME SCREEN ==================== */
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #a333ff 0%, #ff77ff 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10002;
+    animation: fadeIn 0.5s ease;
+}
+
+.welcome-content {
+    padding: 40px 60px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(163, 51, 255, 0.5);
+    animation: popIn 0.4s ease-out;
+}
+
+.welcome-text {
+    font-family: 'Cinzel', serif;
+    color: #ffffff;
+    font-size: 2rem;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+/* Confetti particles */
+.welcome-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.pinimg.com/originals/f9/9e/0a/f99e0af354cea67e0d4ef403a99c05cc.gif');
+    background-size: cover;
+    opacity: 0.2;
+    animation: rotateBackground 30s linear infinite;
+}
+
 .particle {
     position: absolute;
     width: 4px;
@@ -1101,6 +1222,26 @@ input:hover, textarea:hover {
   to { opacity: 1; }
 }
 
+/* Auth modal background petals animation */
+.auth-modal::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url('https://i.pinimg.com/originals/ab/1a/66/ab1a664391713c3dc5fc8ea03c40b9a3.gif');
+    background-size: cover;
+    opacity: 0.15;
+    animation: rotateBackground 30s linear infinite;
+    z-index: 1;
+}
+
+@keyframes rotateBackground {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
 .auth-container {
   background: linear-gradient(135deg, rgba(163, 51, 255, 0.2) 0%, rgba(255, 183, 197, 0.1) 100%);
   border: 2px solid #a333ff;
@@ -1329,6 +1470,15 @@ input:hover, textarea:hover {
 
 .admin-panel-modal.active {
   display: flex;
+}
+
+.admin-panel-modal.active .admin-modal-content {
+  animation: popIn 0.4s ease-out;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .admin-modal-content {

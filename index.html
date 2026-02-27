@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpeg" href="icon.jpg">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="social-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -29,7 +30,6 @@
                 <h1>⚡ Os Mistérios Estão Sendo Revelados ⚡</h1>
                 <p class="subtitle">O Santuário Nakunami está sendo atualizado...</p>
             </div>
-
             <div class="maintenance-message">
                 <div class="loading-dots">
                     <span></span>
@@ -73,6 +73,25 @@
                 <div class="particle"></div>
                 <div class="particle"></div>
             </div>
+        </div>
+    </div>
+
+    <!-- BAN SCREEN (Banimento) -->
+    <div id="ban-screen" class="ban-screen" style="display: none;">
+        <div class="ban-content">
+            <div class="ban-header">
+                <div class="ban-icon">🚫</div>
+                <h1>VOCÊ FOI BANIDO</h1>
+            </div>
+            <p class="ban-message">Razão: Perturbação da Luz de Narukami</p>
+            <p class="ban-sub">A Guuji Yae Miko ordenou sua expulsão permanente.</p>
+        </div>
+    </div>
+
+    <!-- WELCOME SCREEN -->
+    <div id="welcome-screen" class="welcome-screen" style="display: none;">
+        <div class="welcome-content">
+            <div class="welcome-text">Bem-vindo de volta, <span id="welcome-name"></span>!</div>
         </div>
     </div>
 

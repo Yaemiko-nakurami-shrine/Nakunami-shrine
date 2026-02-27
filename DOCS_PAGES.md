@@ -18,6 +18,14 @@
 **📖 Ver detalhes em:** [SYSTEM_DOCS.md](SYSTEM_DOCS.md#-autenticação)  
 **🧪 Testar em:** [TESTING_GUIDE.md](TESTING_GUIDE.md#teste-1-login-básico)
 
+### Telas Especiais & Animações
+- **Loader inicial:** Tela com raposa giratória, barra de carregamento e efeito de trovão; aparece 1.5 s ao carregar.
+- **Tela de manutenção:** Overlay colorido com partículas eletro, cabeçalho animado e mensagens dinâmicas; ativada pelo admin.
+- **Tela de banimento:** Fundo escuro com conteúdo tremendo e ícone pulsante; exibida quando o usuário está banido.
+- **Tela de boas-vindas:** Mensagem animada com confetes após login, desaparece automaticamente.
+
+Essas telas possuem animações CSS e ajudam a criar uma experiência mais imersiva.
+
 ### Navegação Principal
 - **O que é:** Menu de navegação com links principais
 - **Quem acessa:** Todos os visitantes
