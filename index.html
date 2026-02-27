@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Nakunami Shrine</title>
 </head>
 <body>
    
@@ -350,97 +351,6 @@ window.addEventListener('load', () => {
     Visit U/M/A/A Official 🦊
 </a>
 <button onclick="openScroll()" class="btn-shrine">Read Secret Scroll 🦊</button>
-
-<div id="shrine-modal" class="modal-overlay">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeScroll()">&times;</span>
-        <h2 style="font-family: 'Cinzel', serif;">Sacred Decree</h2>
-        <p>"Knowledge is the only treasure that increases when shared."</p>
-        <img src="https://i.pinimg.com" width="100">
-    </div>
-</div>
-<script>function openScroll() {
-    document.getElementById('shrine-modal').style.display = 'flex';
-}
-function closeScroll() {
-    document.getElementById('shrine-modal').style.display = 'none';
-}
-</script>
-<div class="book-container">
-    <div class="book">
-        <!-- Capa -->
-        <div class="page cover" onclick="flipPage(this)">
-            <h2 style="font-family: 'Cinzel', serif;">The Fox's Chronicles</h2>
-            <img src="https://i.pinimg.com" width="120">
-            <p>Click to open 🦊</p>
-        </div>
-        
-        <!-- Página 1 (Conteúdo) -->
-        <div class="page" onclick="flipPage(this)">
-            <h3>Chapter I: Narukami</h3>
-            <p>"Nothing lasts forever, but memories are etched in the Sakura."</p>
-            <p style="font-size: 12px; margin-top: 20px;">- Lady Guuji</p>
-        </div>
-
-        <!-- Página 2 (Final) -->
-        <div class="page last-page">
-            <h3>The End</h3>
-            <p>May the Guuji's blessings be with you.</p>
-            <button onclick="resetBook()" style="background:#ffb7c5; border:none; padding:5px 10px; cursor:pointer;">Close Book</button>
-        </div>
-    </div>
-</div>
-<script>function flipPage(element) {
-    // Adiciona a classe que gira a página
-    element.classList.add('flipped');
-    
-    // Diminui o z-index para a próxima página aparecer
-    setTimeout(() => {
-        element.style.zIndex = "1";
-    }, 400);
-}
-
-function resetBook() {
-    // Remove a classe de todas as páginas para fechar o livro
-    const pages = document.querySelectorAll('.page');
-    pages.forEach((page, index) => {
-        page.classList.remove('flipped');
-        // Restaura o z-index original (capa por cima)
-        if(page.classList.contains('cover')) {
-            page.style.zIndex = "5";
-        } else {
-            page.style.zIndex = "2";
-        }
-    });
-}
-</script>
-<div class="shrine-social-medias BETA">
-    <!-- Discord -->
-     <p>Discord server</p>
-    <a href="https://discord.com/invite/yae" target="_blank" class="social-btn discord">
-        <i class="fab fa-discord"></i>
-        <span class="tooltip">Discord</span>
-    </a>
-
-    <p>shrine site instagram/p>
-    <a href="https://www.instagram.com/damien_siinamota/" target="_blank" class="social-btn insta">
-        <i class="fab fa-instagram"></i>
-        <span class="tooltip">Instagram</span>
-    </a>
-
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/damien.samael.soares.brito/" target="_blank" class="social-btn face">
-        <i class="fab fa-facebook-f"></i>
-        <span class="tooltip">Facebook</span>
-    </a>
-
- 
-    <!-- Gmail -->
-    <a href="mailto:damiensoaresbrito@gmail.com" class="social-btn mail">
-        <i class="fas fa-envelope"></i>
-        <span class="tooltip">Gmail</span>
-    </a>
-</div>
 <section class="bio-shrine">
     <div class="bio-content">
         <h2 class="bio-title">Guuji Yae Miko 🦊</h2>
@@ -454,6 +364,33 @@ function resetBook() {
         <div class="bio-signature">Finalizado com a luz de Narukami.</div>
     </div>
 </section>
+
+<!-- REDES SOCIAIS -->
+<footer class="social-footer">
+    <h3>Follow the Shrine</h3>
+    <div class="social-container">
+        <a href="https://discord.com/invite/yae" target="_blank" class="social-link discord" title="Discord">
+            <i class="fab fa-discord"></i>
+        </a>
+        <a href="https://www.instagram.com/damien_siinamota/" target="_blank" class="social-link instagram" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/damien.samael.soares.brito/" target="_blank" class="social-link facebook" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="mailto:damiensoaresbrito@gmail.com" class="social-link email" title="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.youtube.com" target="_blank" class="social-link youtube" title="YouTube">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" class="social-link twitter" title="Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+    </div>
+    <p class="shrine-blessing">May the Narukami light guide your path ⚡</p>
+</footer>
+
 <script>async function sendSiteAnalytics(eventDetail) {
     // Coleta dados interessantes (e éticos) do acesso
     const data = {

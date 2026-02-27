@@ -606,6 +606,124 @@ input:hover, textarea:hover {
     color: #a333ff;
     font-size: 0.9rem;
 }
+/* FOOTER REDES SOCIAIS */
+.social-footer {
+  background: linear-gradient(135deg, rgba(163, 51, 255, 0.15) 0%, rgba(255, 183, 197, 0.1) 100%);
+  border-top: 2px solid #a333ff;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 60px;
+  backdrop-filter: blur(10px);
+}
+
+.social-footer h3 {
+  color: #ffb7c5;
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(163, 51, 255, 0.5);
+}
+
+.social-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+
+.social-link:hover {
+  transform: scale(1.2) translateY(-5px);
+  box-shadow: 0 0 20px rgba(163, 51, 255, 0.6);
+}
+
+.social-link.discord {
+  color: #5865F2;
+  background: rgba(88, 101, 242, 0.1);
+}
+
+.social-link.discord:hover {
+  background: #5865F2;
+  color: white;
+  border-color: #5865F2;
+}
+
+.social-link.instagram {
+  color: #E4405F;
+  background: rgba(228, 64, 95, 0.1);
+}
+
+.social-link.instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+  border-color: #E4405F;
+}
+
+.social-link.facebook {
+  color: #1877F2;
+  background: rgba(24, 119, 242, 0.1);
+}
+
+.social-link.facebook:hover {
+  background: #1877F2;
+  color: white;
+  border-color: #1877F2;
+}
+
+.social-link.youtube {
+  color: #FF0000;
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.social-link.youtube:hover {
+  background: #FF0000;
+  color: white;
+  border-color: #FF0000;
+}
+
+.social-link.twitter {
+  color: #1DA1F2;
+  background: rgba(29, 161, 242, 0.1);
+}
+
+.social-link.twitter:hover {
+  background: #1DA1F2;
+  color: white;
+  border-color: #1DA1F2;
+}
+
+.social-link.email {
+  color: #a333ff;
+  background: rgba(163, 51, 255, 0.1);
+}
+
+.social-link.email:hover {
+  background: #a333ff;
+  color: white;
+  border-color: #a333ff;
+}
+
+.shrine-blessing {
+  color: #ffb7c5;
+  font-style: italic;
+  font-size: 0.9rem;
+  margin: 0;
+  text-shadow: 0 0 5px rgba(255, 183, 197, 0.5);
+}
+
 .miko-btn {
   position: fixed;
   bottom: 80px; /* Acima do chat */
