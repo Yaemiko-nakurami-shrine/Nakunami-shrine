@@ -6,6 +6,88 @@ const ROLES = {
     ADMIN: 'administrador'
 };
 
+// ===== ACTIVITY LOG =====
+const MAX_ACTIVITIES = 50; // Limpar log com mais de 50 atividades
+
+function logActivity(type, userEmail, userName) {
+    const activity = {
+        type: type, // 'LOGIN', 'SIGNUP', 'LOGOUT', 'WARN', 'KICK', 'BAN'
+        email: userEmail,
+        name: userName,
+        timestamp: new Date().toISOString(),
+        displayTime: new Date().toLocaleString('pt-BR')
+    };
+
+    let activities = JSON.parse(localStorage.getItem('activity_log') || '[]');
+    activities.unshift(activity); // Adiciona no início (mais recente)
+    
+    // Limpa se exceder máximo
+    if (activities.length > MAX_ACTIVITIES) {
+        activities = activities.slice(0, MAX_ACTIVITIES);
+    }
+    
+    localStorage.setItem('activity_log', JSON.stringify(activities));
+    updateActivityDisplay();
+}
+
+function getActivities() {
+    return JSON.parse(localStorage.getItem('activity_log') || '[]');
+}
+
+function updateActivityDisplay() {
+    const logContainer = document.getElementById('activity-log');
+    if (!logContainer) return;
+    
+    const activities = getActivities();
+    
+    if (activities.length === 0) {
+        logContainer.innerHTML = '<div class="no-activities">Nenhuma atividade registrada</div>';
+        return;
+    }
+    
+    let html = '<div class="activity-list">';
+    activities.forEach(activity => {
+        const emoji = {
+            'LOGIN': '🔓',
+            'SIGNUP': '✨',
+            'LOGOUT': '👋',
+            'WARN': '⚠️',
+            'KICK': '👢',
+            'BAN': '🚫'
+        }[activity.type] || '📝';
+        
+        const color = {
+            'LOGIN': '#4CAF50',
+            'SIGNUP': '#2196F3',
+            'LOGOUT': '#FF9800',
+            'WARN': '#FFC107',
+            'KICK': '#FF5722',
+            'BAN': '#F44336'
+        }[activity.type] || '#9d72ff';
+        
+        html += `
+            <div class="activity-item" style="border-left-color: ${color};">
+                <span class="activity-emoji">${emoji}</span>
+                <div class="activity-details">
+                    <span class="activity-type">${activity.type}</span>
+                    <span class="activity-info">${activity.name} (${activity.email})</span>
+                    <span class="activity-time">${activity.displayTime}</span>
+                </div>
+            </div>
+        `;
+    });
+    html += '</div>';
+    logContainer.innerHTML = html;
+}
+
+function clearActivityLog() {
+    if (confirm('Tem certeza que deseja limpar todo o histórico de atividades?')) {
+        localStorage.removeItem('activity_log');
+        updateActivityDisplay();
+        alert('✅ Histórico de atividades limpo');
+    }
+}
+
 // ===== INITIALIZE APP =====
 document.addEventListener('DOMContentLoaded', () => {
     setupAuthSystem();
@@ -69,6 +151,10 @@ function handleLogin(event) {
         }
         
         localStorage.setItem('current_user', JSON.stringify(user));
+        
+        // Log activity
+        logActivity('LOGIN', user.email, user.name);
+        
         alert(`🦊 Bem-vindo de volta, ${user.name}! (Papel: ${user.role})`);
         updateAuthButton();
         closeAuthModal();
@@ -124,6 +210,9 @@ function handleSignUp(event) {
     localStorage.setItem('shrine_users', JSON.stringify(users));
     localStorage.setItem('current_user', JSON.stringify(newUser));
 
+    // Log activity
+    logActivity('SIGNUP', newUser.email, newUser.name);
+
     alert(`✨ Bem-vindo ao Santuário, ${name}! (Papel: ${role})`);
     updateAuthButton();
     closeAuthModal();
@@ -163,6 +252,9 @@ function showUserMenu() {
     );
     
     if (action) {
+        // Log activity
+        logActivity('LOGOUT', currentUser.email, currentUser.name);
+        
         localStorage.removeItem('current_user');
         alert('🦊 Que a luz de Narukami guie sua jornada...');
         updateAuthButton();
@@ -220,6 +312,9 @@ function setupAdminPanel() {
         adminBtn.addEventListener('click', toggleAdminPanel);
     }
     
+    // Initialize activity display
+    updateActivityDisplay();
+    
     // Keyboard shortcut (Ctrl+Shift+A) - only works for admin
     document.addEventListener('keydown', (e) => {
         if (e.ctrlKey && e.shiftKey && e.key === 'A') {
@@ -243,6 +338,11 @@ function toggleAdminPanel() {
     if (adminPanel) {
         const isVisible = adminPanel.style.display === 'block';
         adminPanel.style.display = isVisible ? 'none' : 'block';
+        
+        // Update activity display when opening
+        if (!isVisible) {
+            updateActivityDisplay();
+        }
     }
 }
 
@@ -263,14 +363,17 @@ function adminAction(type) {
 
     if (type === 'WARN') {
         alert('⚠️ [SISTEMA]: Um aviso foi enviado ao visitante.');
+        logActivity('WARN', 'sistema', 'Admin');
     } else if (type === 'KICK') {
         alert('👢 [SISTEMA]: Expulsando usuário...');
+        logActivity('KICK', 'sistema', 'Admin');
         localStorage.removeItem('current_user');
         updateAuthButton();
         checkUserRole();
     } else if (type === 'BAN') {
         if (confirm('Tem certeza que deseja banir permanentemente este usuário?')) {
             localStorage.setItem('yae_status', 'BANNED');
+            logActivity('BAN', 'sistema', 'Admin');
             alert('🚫 Usuário banido. Recarregando página...');
             location.reload();
         }

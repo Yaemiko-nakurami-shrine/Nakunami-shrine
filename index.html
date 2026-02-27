@@ -268,7 +268,14 @@
                 <h3>⚙️ Configurações do Santuário</h3>
                 <div class="admin-grid">
                     <button class="admin-btn" onclick="resetAllData()" style="background: linear-gradient(135deg, rgba(139, 0, 0, 0.6), rgba(255, 0, 0, 0.6)); border-color: #FF4444;">🔄 Resetar Dados</button>
-                    <button class="admin-btn" onclick="closeAdminPanel()">❌ Fechar Painel</button>
+                    <button class="admin-btn" onclick="clearActivityLog()">🗑️ Limpar Log</button>
+                </div>
+            </div>
+
+            <div class="admin-section">
+                <h3>⚡ Atividades em Tempo Real</h3>
+                <div id="activity-log" class="activity-log-container">
+                    <div class="no-activities">Carregando atividades...</div>
                 </div>
             </div>
 
