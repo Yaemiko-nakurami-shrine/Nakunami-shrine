@@ -900,3 +900,217 @@ input:hover, textarea:hover {
   margin-bottom: 20px;
   text-align: center;
 }
+
+/* ===== ADMIN PANEL STYLES ===== */
+#admin-label {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  background: linear-gradient(135deg, #8B008B, #FF1493);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  z-index: 998;
+  display: none;
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
+  animation: pulse-admin 1.5s infinite;
+}
+
+@keyframes pulse-admin {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 20, 147, 0.6); }
+  50% { box-shadow: 0 0 40px rgba(255, 20, 147, 1); }
+}
+
+#admin-panel-container {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  background: rgba(26, 26, 26, 0.95);
+  border: 2px solid #8B008B;
+  border-radius: 15px;
+  padding: 20px;
+  z-index: 998;
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+  min-width: 200px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(163, 51, 255, 0.5);
+}
+
+#admin-toggle-btn {
+  background: linear-gradient(135deg, #8B008B, #FF1493);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+#admin-toggle-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
+}
+
+.admin-panel-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-panel-modal.active {
+  display: flex;
+}
+
+.admin-modal-content {
+  background: linear-gradient(135deg, rgba(139, 0, 139, 0.3), rgba(255, 20, 147, 0.2));
+  border: 2px solid #8B008B;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 0 50px rgba(163, 51, 255, 0.7);
+  backdrop-filter: blur(15px);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.admin-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #FF1493;
+  font-size: 28px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.admin-modal-close:hover {
+  transform: rotate(90deg);
+}
+
+.admin-modal-content h2 {
+  color: #FF1493;
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0 0 15px rgba(255, 20, 147, 0.7);
+  font-size: 1.8rem;
+}
+
+.admin-section {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 20, 147, 0.3);
+}
+
+.admin-section:last-child {
+  border-bottom: none;
+}
+
+.admin-section h3 {
+  color: #FFB6C1;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.admin-btn {
+  background: linear-gradient(135deg, rgba(139, 0, 139, 0.6), rgba(255, 20, 147, 0.6));
+  color: white;
+  border: 1px solid #FF1493;
+  padding: 12px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  font-size: 0.85rem;
+}
+
+.admin-btn:hover {
+  background: linear-gradient(135deg, #8B008B, #FF1493);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(255, 20, 147, 0.6);
+}
+
+.admin-btn:active {
+  transform: translateY(0);
+}
+
+.admin-info {
+  background: rgba(255, 20, 147, 0.1);
+  border-left: 3px solid #FF1493;
+  padding: 15px;
+  border-radius: 8px;
+  color: #FFB6C1;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+#user-info-display {
+  position: fixed;
+  top: 70px;
+  left: 20px;
+  background: rgba(163, 51, 255, 0.2);
+  border: 1px solid #a333ff;
+  color: #ffb7c5;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  z-index: 998;
+  display: none;
+  backdrop-filter: blur(5px);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== SPARK ANIMATIONS ===== */
+.electro-spark {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #a333ff;
+  box-shadow: 0 0 15px #ff77ff;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: explode 0.6s ease-out forwards;
+}
+
+@keyframes explode {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+.typing-text {
+  color: #ffb7c5;
+  text-shadow: 0 0 10px rgba(255, 183, 197, 0.8);
+  font-family: 'Cinzel', serif;
+}

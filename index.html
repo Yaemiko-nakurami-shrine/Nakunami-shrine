@@ -66,6 +66,15 @@
         </div>
     </nav>
 
+    <!-- USER INFO DISPLAY -->
+    <div id="user-info-display"></div>
+
+    <!-- ADMIN PANEL BUTTON & INDICATOR -->
+    <div id="admin-label">🦊 PAINEL YAE ADMIN</div>
+    <div id="admin-panel-container">
+        <button id="admin-toggle-btn" onclick="toggleAdminPanel()">👑 Abrir Painel Admin</button>
+    </div>
+
     <!-- SEÇÃO 1: CABEÇALHO E INTRODUÇÃO -->
     <header class="shrine-header">
         <h1>Nakunami Shrine</h1>
@@ -231,43 +240,48 @@
     </footer>
 
     <!-- ADMIN PANEL (Hidden) -->
-    <div id="roblox-admin">
-        <h3>🦊 YAE ADMIN PANEL</h3>
-        <p>Target User: <span id="target-display">Visitor_1</span></p>
-        <div class="admin-buttons">
-            <button onclick="adminAction('WARN')">⚠️ WARN USER</button>
-            <button onclick="adminAction('KICK')">👢 KICK USER</button>
-            <button onclick="adminAction('BAN')">🚫 BAN USER</button>
-            <button onclick="closeAdmin()">Close</button>
+    <div id="admin-panel-modal" class="admin-panel-modal">
+        <div class="admin-modal-content">
+            <button class="admin-modal-close" onclick="closeAdminPanel()">✕</button>
+            
+            <h2>🦊 YAE MIKO ADMIN PANEL</h2>
+            
+            <div class="admin-section">
+                <h3>📊 Gerenciamento de Usuários</h3>
+                <div class="admin-grid">
+                    <button class="admin-btn" onclick="adminAction('USERS')">📋 Ver Usuários</button>
+                    <button class="admin-btn" onclick="changeUserRole()">✏️ Alterar Papel</button>
+                    <button class="admin-btn" onclick="deleteUser()">🗑️ Deletar Usuário</button>
+                    <button class="admin-btn" onclick="adminAction('WARN')">⚠️ Avisar Usuário</button>
+                </div>
+            </div>
+
+            <div class="admin-section">
+                <h3>⚡ Ações Moderadoras</h3>
+                <div class="admin-grid">
+                    <button class="admin-btn" onclick="adminAction('KICK')">👢 Expulsar Usuário</button>
+                    <button class="admin-btn" onclick="adminAction('BAN')">🚫 Banir Usuário</button>
+                </div>
+            </div>
+
+            <div class="admin-section">
+                <h3>⚙️ Configurações do Santuário</h3>
+                <div class="admin-grid">
+                    <button class="admin-btn" onclick="resetAllData()" style="background: linear-gradient(135deg, rgba(139, 0, 0, 0.6), rgba(255, 0, 0, 0.6)); border-color: #FF4444;">🔄 Resetar Dados</button>
+                    <button class="admin-btn" onclick="closeAdminPanel()">❌ Fechar Painel</button>
+                </div>
+            </div>
+
+            <div class="admin-info">
+                <strong>ℹ️ Informação:</strong><br>
+                Este painel é exclusivo para damiensoaresbrito@gmail.com<br>
+                Atalho: Ctrl+Shift+A
+            </div>
         </div>
     </div>
 
-    <!-- STYLES FOR SPARKS AND ANIMATIONS -->
-    <style>
-        .electro-spark {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background: #a333ff;
-            box-shadow: 0 0 15px #ff77ff;
-            border-radius: 50%;
-            pointer-events: none;
-            animation: explode 0.6s ease-out forwards;
-        }
-
-        @keyframes explode {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(4); opacity: 0; }
-        }
-
-        .typing-text {
-            color: #ffb7c5;
-            text-shadow: 0 0 10px rgba(255, 183, 197, 0.8);
-            font-family: 'Cinzel', serif;
-        }
-    </style>
-
     <!-- JAVASCRIPT SCRIPTS -->
+    <script src="app.js"></script>
     <script>
         // ===== LOADER =====
         window.addEventListener('load', () => {
@@ -345,39 +359,6 @@
             setTimeout(() => spark.remove(), 600);
         });
 
-        // ===== ADMIN PANEL =====
-        document.addEventListener('keydown', (e) => {
-            if (e.ctrlKey && e.shiftKey && e.key === 'P') {
-                document.getElementById('roblox-admin').style.display = 'block';
-            }
-        });
-
-        function adminAction(type) {
-            if (type === 'WARN') {
-                alert("⚠️ [SYSTEM]: A warning has been sent to the visitor.");
-            } else if (type === 'KICK') {
-                alert("👢 [SYSTEM]: Kicking user...");
-                window.location.href = "https://www.google.com";
-            } else if (type === 'BAN') {
-                if (confirm("Are you sure you want to PERMABAN this user?")) {
-                    localStorage.setItem("yae_status", "BANNED");
-                    alert("🚫 User Banned. Refreshing page to apply...");
-                    location.reload();
-                }
-            }
-        }
-
-        function closeAdmin() {
-            document.getElementById('roblox-admin').style.display = 'none';
-        }
-
-        // ===== BAN CHECK =====
-        window.addEventListener('load', () => {
-            if (localStorage.getItem("yae_status") === "BANNED") {
-                document.body.innerHTML = '<h1 style="color:red; text-align:center; margin-top:20vh;">🚫 YOU ARE BANNED FROM THE SHRINE.<br><br>Reason: Disrupting the Narukami Light.</h1>';
-            }
-        });
-
         // ===== FORM SUBMISSION =====
         document.querySelector('form')?.addEventListener('submit', () => {
             alert("May the Narukami light guide your path... Your offering was sent! ✨");
@@ -391,148 +372,6 @@
                 console.error("The fox messenger failed:", error);
             }
         }
-    </script>
-
-    <!-- AUTH SYSTEM -->
-    <script>
-        // ===== OPEN/CLOSE AUTH MODAL =====
-        function openAuthModal() {
-            document.getElementById('auth-modal').classList.add('active');
-        }
-
-        function closeAuthModal() {
-            document.getElementById('auth-modal').classList.remove('active');
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('auth-modal')?.addEventListener('click', (e) => {
-            if (e.target.id === 'auth-modal') {
-                closeAuthModal();
-            }
-        });
-
-        // ===== SWITCH BETWEEN LOGIN AND SIGNUP =====
-        function switchToSignUp() {
-            document.getElementById('login-form').classList.remove('active');
-            document.getElementById('signup-form').classList.add('active');
-        }
-
-        function switchToLogin() {
-            document.getElementById('signup-form').classList.remove('active');
-            document.getElementById('login-form').classList.add('active');
-        }
-
-        // ===== LOGIN HANDLER =====
-        function handleLogin(event) {
-            event.preventDefault();
-            const email = event.target.querySelector('input[type="email"]').value;
-            const password = event.target.querySelector('input[type="password"]').value;
-
-            // Basic validation
-            if (!email || !password) {
-                alert('Please fill in all fields!');
-                return;
-            }
-
-            // Store in localStorage
-            const users = JSON.parse(localStorage.getItem('shrine_users') || '[]');
-            const user = users.find(u => u.email === email && u.password === password);
-
-            if (user) {
-                localStorage.setItem('current_user', JSON.stringify(user));
-                alert(`🦊 Welcome back, ${user.name}!`);
-                updateAuthButton();
-                closeAuthModal();
-                event.target.reset();
-            } else {
-                alert('❌ Invalid email or password!');
-            }
-        }
-
-        // ===== SIGNUP HANDLER =====
-        function handleSignUp(event) {
-            event.preventDefault();
-            const inputs = event.target.querySelectorAll('input');
-            const name = inputs[0].value;
-            const email = inputs[1].value;
-            const password = inputs[2].value;
-            const confirmPassword = inputs[3].value;
-
-            // Validations
-            if (!name || !email || !password || !confirmPassword) {
-                alert('Please fill in all fields!');
-                return;
-            }
-
-            if (password !== confirmPassword) {
-                alert('❌ Passwords do not match!');
-                return;
-            }
-
-            if (password.length < 6) {
-                alert('❌ Password must be at least 6 characters!');
-                return;
-            }
-
-            // Check if user already exists
-            let users = JSON.parse(localStorage.getItem('shrine_users') || '[]');
-            if (users.find(u => u.email === email)) {
-                alert('❌ This email is already registered!');
-                return;
-            }
-
-            // Create new user
-            const newUser = { name, email, password };
-            users.push(newUser);
-            localStorage.setItem('shrine_users', JSON.stringify(users));
-            localStorage.setItem('current_user', JSON.stringify(newUser));
-
-            alert(`✨ Welcome to the Shrine, ${name}!`);
-            updateAuthButton();
-            closeAuthModal();
-            event.target.reset();
-        }
-
-        // ===== UPDATE AUTH BUTTON =====
-        function updateAuthButton() {
-            const currentUser = JSON.parse(localStorage.getItem('current_user'));
-            const authBtn = document.querySelector('.auth-btn');
-
-            if (currentUser) {
-                authBtn.textContent = `👋 ${currentUser.name}`;
-                authBtn.onclick = showUserMenu;
-            } else {
-                authBtn.textContent = '🔐 Login';
-                authBtn.onclick = openAuthModal;
-            }
-        }
-
-        // ===== USER MENU =====
-        function showUserMenu() {
-            const currentUser = JSON.parse(localStorage.getItem('current_user'));
-            if (!currentUser) return;
-
-            const action = confirm(`Welcome, ${currentUser.name}! 👋\n\nClick OK to logout, or Cancel to continue.`);
-            if (action) {
-                localStorage.removeItem('current_user');
-                alert('🦊 May the Narukami light guide your journey...');
-                updateAuthButton();
-            }
-        }
-
-        // ===== CHECK USER ON PAGE LOAD =====
-        document.addEventListener('DOMContentLoaded', () => {
-            updateAuthButton();
-            
-            // Load demo users
-            if (!localStorage.getItem('shrine_users')) {
-                const demoUsers = [
-                    { name: 'Yae Miko', email: 'miko@shrine.jp', password: 'kitsune123' },
-                    { name: 'Traveler', email: 'traveler@teyvat.com', password: 'teyvat2025' }
-                ];
-                localStorage.setItem('shrine_users', JSON.stringify(demoUsers));
-            }
-        });
     </script>
 
     <!-- TAWK.TO CHAT -->
