@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+   
+   <h1>Nakurami Shrine</h1>
+   <h2>Greetings fellow traveler!</h2>
+   <h2>Welcome to the sacred shrine of Nakurami.</h2>
+   <p>As the head shrine maiden, I am honored to guide you through our traditions and rituals.</p>
+   <p>Here, we worship the divine fox spirit, Nakurami, who is said to bring good fortune and prosperity to those who pay their respects.</p>
+   <p>Feel free to explore the shrine grounds, offer your prayers, and partake in our ceremonies.</p>
+   <p>May Nakurami bless you with happiness and success on your journey.</p>
+   <p>High atop Mt. Yougou, where the clouds meet the earth, stands the Grand Narukami Shrine. As the most important shrine in Inazuma, it remains a sanctuary of peace and divine protection, overseen by the watchful gaze of the Lady Guuji.</p>
+   <p>The shrine is managed by Yae Miko, the "Guuji" of the Grand Narukami Shrine and Editor-in-Chief of the Yae Publishing House. Wise, beautiful, and unpredictable, she ensures that the traditions of the shrine are kept—often with a playful twist that only a kitsune could devise.</p>
+   <p>Are you curious about what the stars have in store? Draw a Fortune Slip at the shrine booth. Whether you receive "Great Misfortune" or "Great Fortune," remember that destiny is as fleeting as a lightning flash, yet as enduring as the mountain itself.</p>
+   <p>Present your Electro Sigils to the Sacred Sakura to deepen your favor with the divine. As the tree grows stronger, so too shall the blessings bestowed upon you during your travels across the islands of Eternity.</p>
+   <p>The Sacred Sakura is more than just a tree; it is the soul of Inazuma. It remembers everything, from the whispers of the past to the dreams of the future. Offer your sigils, and perhaps the blossoms will whisper a secret or two just for you."</p>"
+   <h3>Yae Miko's msg</h3> 
+   
+  <div class="miko-box">
+  <p class="miko-text">"Oh? A visitor at this hour? I hope you brought some Fried Tofu..."</p>
+</div>
+<p>"Are you here to draw a fortune slip, little one? Don't look so nervous. Even if it says 'Great Misfortune,' I might be persuaded to help you change your fate... for a price, of course. After all, what is life without a little bit of chaos and a lot of fun?"</p>
+
+</body>
+</html>
+<section class="miko-profile">
+  <div class="miko-avatar">
+  <!-- Copinete e cole este link no seu HTML -->
+<img src="https://i.pinimg.com/736x/ce/73/35/ce7335937441da6026784d7358146c18.jpg" alt="Yae Miko" class="miko-img">
+<!-- Substitua por uma imagem real da Miko -->
+  </div>
+  <div class="miko-info">
+    <h3>Lady Guuji Yae Miko</h3>
+    <p class="subtitle">Guuji of the Grand Narukami Shrine</p>
+    <span class="vision-tag">Electro</span>
+  </div>
+</section>
+<nav class="shrine-nav">
+  <ul>
+    <li><a href="#intro">Sacred Sakura</a></li>
+    <li><a href="#miko">Lady Guuji</a></li>
+    <li><a href="#omikuji">Draw Fortune</a></li>
+  </ul>
+</nav>
+<div class="omikuji-section" id="omikuji">
+  <h2>Draw your Fortune Slip</h2>
+  <div class="omikuji-box">
+    <p id="fortune-text">"Click the button to see what fate has in store..."</p>
+    <button onclick="drawFortune()">Shake the Box</button>
+  </div>
+</div>
+<script>
+function drawFortune() {
+  const fortunes = [
+    "✨ Great Fortune: The lightning strikes twice in your favor today!",
+    "🌸 Good Luck: A fox's blessing follows your every step.",
+    "⚡ Modest Luck: Be careful with Electro, but victory is yours.",
+    "🦊 Neutral: The Lady Guuji is watching... don't be boring.",
+    "💧 Misfortune: Perhaps a box of Fried Tofu will change your fate?"
+  ];
+  const random = fortunes[Math.floor(Math.random() * fortunes.length)];
+  document.getElementById('fortune-text').innerText = random;
+}
+</script>
+<div class="skill-container">
+  <div class="skill-item">
+    <div class="skill-icon">⚡</div>
+    <div class="skill-desc">
+      <strong>Great Secret Art: Tenko Kenshin</strong>
+      <p>Summons lightning to strike enemies with fox-like precision.</p>
+    </div>
+  </div>
+</div>
+<nav class="shrine-nav">
+  <ul>
+    <li><a href="#sakura">Sacred Sakura</a></li>
+    <li><a href="#miko">Lady Guuji</a></li>
+    <li><a href="#fortune">Draw Fortune</a></li>
+  </ul>
+</nav>
+<!-- SEÇÃO 1: SACRED SAKURA -->
+<section id="sakura" class="page-section">
+    <h2>The Sacred Sakura</h2>
+    <p>The climb to the Grand Narukami Shrine is a journey of purification. Thousands of vibrant red Torii gates line the winding stairs of Mount Yougou, each one a silent witness to the prayers of countless souls. As the air grows thin and the scent of Sakura blossoms fills the wind, the noise of the world below fades into the hum of sacred thunder.</p>
+    <p>Since ancient times, the shrine has stood as the ultimate shield against the "Sacred Sakura Cleansing." The roots of the divine tree reach deep into the earth, drawing out the filth and miasma that plague the land. It is here, under the moon's silver glow, that the shrine maidens perform their dances to ensure the eternity of Narukami's grace.</p>
+
+    <!-- Adicione aqui imagens ou mais textos sobre a árvore -->
+
+</section>
+
+<hr class="divider">
+
+<!-- SEÇÃO 2: LADY GUUJI -->
+<section id="miko" class="page-section">
+    <h2>Lady Guuji Yae Miko</h2>
+    <p>"Oh? A visitor at this hour? I hope you brought some Fried Tofu..."</p>
+    <p>Keep a respectful silence as you pass the stone Sky Kitsune and Earth Kitsune statues. They are the eyes and ears of the Lady Guuji. Legends say that for those who show true devotion, these stone guardians might whisper secrets of the past or grant a fleeting glimpse into a future yet to be written.</p>
+
+    <!-- Aqui vai a imagem da Miko que você baixou -->
+</section>
+
+<hr class="divider">
+
+<!-- SEÇÃO 3: DRAW FORTUNE -->
+<section id="fortune" class="page-section">
+    <h2>Grand Narukami Fortune</h2>
+    <!-- Aqui vai o código do botão de Omikuji que te mandei antes -->
+    <div class="omikuji-box">
+        <p id="fortune-text">Shake the box to see your destiny.</p>
+        <button onclick="drawFortune()">Draw Slip</button>
+    </div>
+</section>
+</script>
+<section class="rules-section">
+  <h2>Shrine Decree: Rules for Visitors</h2>
+  <table class="shrine-table">
+    <thead>
+      <tr>
+        <th>Action</th>
+        <th>Shrine Law</th>
+        <th>Guuji's Comment 🦊</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Offerings</strong></td>
+        <td>Only Electro Sigils or Fried Tofu.</td>
+        <td>"The Sakura has expensive taste, darling."</td>
+      </tr>
+      <tr>
+        <td><strong>Spirits</strong></td>
+        <td>Do not disturb the Fox Statues.</td>
+        <td>"They see everything. Even your bad luck."</td>
+      </tr>
+      <tr>
+        <td><strong>Fortune Slips</strong></td>
+        <td>One Omikuji per day only.</td>
+        <td>"Don't blame the paper for your fate."</td>
+      </tr>
+      <tr>
+        <td><strong>Photography</strong></td>
+        <td>Allowed, but keep it elegant.</td>
+        <td>"Make sure to catch my best angle."</td>
+      </tr>
+      <tr>
+        <td><strong>Climbing</strong></td>
+        <td>Use the stairs, not the cliffs.</td>
+        <td>"Unless you have a Glider and no fear."</td>
+      </tr>
+    </tbody>
+  </table>
+<div class="container">
+    <div class="header">
+        <h2 style="color: #a333ff;">Send Wishes to the Grand Yae Miko</h2>
+        <p>May the Narukami light guide your path.</p>
+    </div>
+<div class="wish-container">
+    <form action="https://formspree.io" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="wish" placeholder="Write your wish here..." rows="4" required></textarea>
+        <button type="submit" class="btn-submit">Submit Offering ✨</button>
+    </form>
+</div>
+<!-- O 'f/seu-email' diz ao Formspree para onde enviar -->
+<form action="https://formspree.io" method="POST">
+    
+    <label>Your Name</label>
+    <input type="text" name="name" required>
+
+    <label>Your Email</label>
+    <input type="email" name="email" required>
+
+    <label>Your Wish</label>
+    <textarea name="message" required></textarea>
+
+    <!-- Isso define o título do e-mail que você vai receber -->
+    <input type="hidden" name="_subject" value="Novo Desejo para a Yae Miko!">
+
+    <button type="submit">Submit Offering ✨</button>
+</form>

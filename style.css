@@ -1,0 +1,297 @@
+p {
+    background-color: rgb(231, 231, 231);
+
+}
+h1{
+    
+}
+body{
+    
+}
+.miko-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #d32f2f; /* Vermelho dos portais Torii */
+  padding: 20px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.miko-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #d32f2f;
+  padding: 20px;
+  border-radius: 8px;
+}
+.miko-text {
+  font-family: 'Georgia', serif;
+  font-size: 1.2rem;
+  color: #9d72ff;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: .15em solid #ffb7c5;
+  text-shadow: 0 0 5px #ffb7c5, 0 0 10px #9d72ff;
+  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite, electro-pulse 2s ease-in-out infinite alternate;
+}
+@keyframes typing { from { width: 0 } to { width: 100% } }
+@keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #ffb7c5; } }
+@keyframes electro-pulse { from { text-shadow: 0 0 5px #ffb7c5, 0 0 10px #9d72ff; } to { text-shadow: 0 0 10px #ffb7c5, 0 0 25px #d1b3ff; } }
+body {
+  /* Substitua pelo link da sua imagem ou caminho do arquivo no GitHub */
+  background-image: url(https://i.pinimg.com/736x/bb/c6/2a/bbc62a4f2c408ba71a72c6b0837e04a7.jpg); 
+  /* Garante que a imagem cubra a tela toda sem repetir */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Efeito de fundo parado ao rolar */
+}
+.miko-box {
+  background: rgba(255, 255, 255, 0.85); /* Fundo branco semi-transparente */
+  backdrop-filter: blur(5px); /* Efeito de vidro jateado */
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: 50px auto;
+}
+body {
+    background-image:url(https://i.pinimg.com/736x/bb/c6/2a/bbc62a4f2c408ba71a72c6b0837e04a7.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilo para o Título */
+h1, h2 {
+    color: #ffb7c5; /* Rosa Cerejeira */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+/* Estilo para as caixas de texto */
+p {
+    background: rgba(255, 255, 255, 0.15); /* Fundo branco bem transparente */
+    backdrop-filter: blur(8px); /* Efeito de vidro jateado */
+    color: #ffffff; /* Texto branco para contraste */
+    padding: 15px 25px;
+    margin: 10px auto;
+    border-radius: 10px;
+    border-left: 5px solid #d32f2f; /* Borda vermelha de portal Torii */
+    max-width: 80%;
+    line-height: 1.6;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+/* Efeito ao passar o mouse */
+p:hover {
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.25);
+}
+.shrine-nav {
+    background: rgba(211, 47, 47, 0.9); /* Vermelho Torii */
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border-bottom: 3px solid #ffd1dc;
+}
+
+.shrine-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 0;
+}
+
+.shrine-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.shrine-nav a:hover {
+    color: #ffd1dc;
+    text-shadow: 0 0 10px #fff;
+}
+.omikuji-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid #9d72ff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.omikuji-box button {
+    background: #9d72ff;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.omikuji-box button:hover {
+    background: #d32f2f;
+    transform: translateY(-3px);
+}
+.skill-container {
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #9d72ff;
+}
+
+.skill-icon {
+    font-size: 2rem;
+    background: #9d72ff;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.skill-desc strong { color: #ffd1dc; display: block; margin-bottom: 5px; }
+.skill-desc p { background: none; border: none; padding: 0; font-size: 0.9rem; margin: 0; color: #ccc; }
+/* Faz a rolagem ser suave ao clicar no menu */
+html {
+    scroll-behavior: smooth;
+}
+
+.page-section {
+    min-height: 80vh; /* Faz cada seção ocupar quase a tela toda */
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.divider {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #ffb7c5, transparent);
+    margin: 50px 0;
+}
+
+/* Garante que o menu não cubra o título ao rolar */
+section {
+    scroll-margin-top: 80px; 
+}
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #9d72ff;
+    padding: 10px 15px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+}
+
+.music-label {
+    color: #ffd1dc;
+    font-size: 0.8rem;
+    font-family: serif;
+}
+
+#music-btn {
+    background: #9d72ff;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#music-btn:hover {
+    background: #ffb7c5;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #9d72ff;
+}
+<script>
+  const music = document.getElementById('shrine-music');
+  const btn = document.getElementById('music-btn');
+
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+      btn.innerText = "II Pause";
+      btn.style.background = "#d32f2f"; // Muda para vermelho ao tocar
+    } else {
+      music.pause();
+      btn.innerText = "▶ Play";
+      btn.style.background = "#9d72ff"; // Volta para roxo
+    }
+  }
+</script>
+/* Centralização do Bloco */
+.wish-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* O segredo para o centro real */
+    
+    background: rgba(255, 255, 255, 0.1); /* Fundo transparente (Glass) */
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 183, 197, 0.5); /* Borda rosa Sakura */
+    width: 320px;
+    box-shadow: 0 0 20px rgba(163, 51, 255, 0.3);
+}
+
+/* Deixando os campos um embaixo do outro e bonitos */
+.wish-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.wish-container input, 
+.wish-container textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: rgba(255, 255, 255, 0.9);
+    box-sizing: border-box; /* Garante que não passe da largura */
+}
+
+.btn-submit {
+    background: #a333ff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
