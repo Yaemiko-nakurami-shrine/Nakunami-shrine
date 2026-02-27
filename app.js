@@ -220,19 +220,25 @@ function handleSignUp(event) {
     checkUserRole();
 }
 
-// ===== UPDATE AUTH BUTTON =====
+// ===== UPDATE AUTH BUTTON ===== (MODIFICADA para integração com rede social)
 function updateAuthButton() {
     const currentUser = JSON.parse(localStorage.getItem('current_user'));
     const authBtn = document.querySelector('.auth-btn');
+    const socialFeedSection = document.getElementById('social-feed-section');
 
     if (currentUser) {
         authBtn.textContent = `👋 ${currentUser.name}`;
         authBtn.onclick = showUserMenu;
+        if (socialFeedSection) socialFeedSection.style.display = 'block';
+        loadFeed();
+        loadUserProfile();
     } else {
         authBtn.textContent = '🔐 Login';
         authBtn.onclick = openAuthModal;
+        if (socialFeedSection) socialFeedSection.style.display = 'none';
     }
 }
+
 
 // ===== USER MENU =====
 function showUserMenu() {
@@ -476,6 +482,264 @@ function switchToLogin() {
     document.getElementById('signup-form').classList.remove('active');
     document.getElementById('login-form').classList.add('active');
 }
+// ===== SOCIAL NETWORK FUNCTIONS =====
+
+// Função para criar um novo post
+function createPost() {
+    const currentUser = JSON.parse(localStorage.getItem('current_user'));
+    if (!currentUser) {
+        alert('❌ Você precisa estar logado para criar posts!');
+        return;
+    }
+    
+    const contentInput = document.getElementById('post-content-input');
+    const content = contentInput.value.trim();
+    
+    if (!content) {
+        alert('❌ Escreva algo para compartilhar!');
+        return;
+    }
+    
+    const post = {
+        id: generateId(),
+        authorEmail: currentUser.email,
+        authorName: currentUser.name,
+        content: content,
+        comments: [],
+        likes: [],
+        timestamp: new Date().toISOString(),
+        displayTime: new Date().toLocaleString('pt-BR')
+    };
+    
+    let posts = JSON.parse(localStorage.getItem('shrine_posts') || '[]');
+    posts.unshift(post);
+    localStorage.setItem('shrine_posts', JSON.stringify(posts));
+    
+    contentInput.value = '';
+    
+    alert('✨ Post compartilhado com sucesso!');
+    loadFeed();
+}
+
+// Carregar feed de posts
+function loadFeed() {
+    const currentUser = JSON.parse(localStorage.getItem('current_user'));
+    const feedContainer = document.getElementById('posts-feed');
+    if (!feedContainer) return;
+    
+    let posts = JSON.parse(localStorage.getItem('shrine_posts') || '[]');
+    
+    if (posts.length === 0) {
+        feedContainer.innerHTML = '<div class="loading-text">Nenhum post ainda. Seja o primeiro a compartilhar! ⚡</div>';
+        return;
+    }
+    
+    let html = '';
+    posts.forEach(post => {
+        const isLiked = post.likes.includes(currentUser?.email || '');
+        const likeBtn = currentUser ? `<button class="post-action-btn ${isLiked ? 'liked' : ''}" onclick="toggleLike('${post.id}')">${isLiked ? '❤️' : '🤍'} ${post.likes.length}</button>` : '';
+        
+        html += `
+            <div class="post-card">
+                <div class="post-header">
+                    <span class="post-author">👤 ${post.authorName}</span>
+                    <span class="post-time">${post.displayTime}</span>
+                </div>
+                <div class="post-content">
+                    ${post.content}
+                </div>
+                <div class="post-actions">
+                    ${likeBtn}
+                    <button class="post-action-btn" onclick="toggleCommentForm('${post.id}')">💬 ${post.comments.length}</button>
+                    <button class="post-action-btn" onclick="reportUser('${post.authorEmail}')">⚠️ Denunciar</button>
+                </div>
+                <div id="comments-${post.id}" class="post-comments" style="display: none;">
+                    <div id="comment-form-${post.id}" class="comment-form" style="display: none;">
+                        <input type="text" id="comment-input-${post.id}" placeholder="Escrever um comentário..." />
+                        <button onclick="addComment('${post.id}')">Enviar</button>
+                    </div>
+                    <div class="comments-list">
+                        ${post.comments.map(c => `<div class="comment"><strong>${c.authorName}:</strong> ${c.content}</div>`).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    
+    feedContainer.innerHTML = html;
+}
+
+// Adicionar comentário
+function addComment(postId) {
+    const currentUser = JSON.parse(localStorage.getItem('current_user'));
+    if (!currentUser) return;
+    
+    const input = document.getElementById(`comment-input-${postId}`);
+    const content = input.value.trim();
+    
+    if (!content) return;
+    
+    let posts = JSON.parse(localStorage.getItem('shrine_posts') || '[]');
+    const post = posts.find(p => p.id === postId);
+    
+    if (post) {
+        post.comments.push({
+            id: generateId(),
+            authorEmail: currentUser.email,
+            authorName: currentUser.name,
+            content: content,
+            timestamp: new Date().toISOString()
+        });
+        
+        localStorage.setItem('shrine_posts', JSON.stringify(posts));
+        input.value = '';
+        loadFeed();
+    }
+}
+
+// Toggle curtida
+function toggleLike(postId) {
+    const currentUser = JSON.parse(localStorage.getItem('current_user'));
+    if (!currentUser) return;
+    
+    let posts = JSON.parse(localStorage.getItem('shrine_posts') || '[]');
+    const post = posts.find(p => p.id === postId);
+    
+    if (post) {
+        const likeIndex = post.likes.indexOf(currentUser.email);
+        if (likeIndex > -1) {
+            post.likes.splice(likeIndex, 1);
+        } else {
+            post.likes.push(currentUser.email);
+        }
+        
+        localStorage.setItem('shrine_posts', JSON.stringify(posts));
+        loadFeed();
+    }
+}
+
+// Toggle comentário
+function toggleCommentForm(postId) {
+    const form = document.getElementById(`comment-form-${postId}`);
+    const comments = document.getElementById(`comments-${postId}`);
+    
+    const isVisible = form.style.display !== 'none';
+    form.style.display = isVisible ? 'none' : 'block';
+    comments.style.display = 'block';
+    
+    if (!isVisible) {
+        document.getElementById(`comment-input-${postId}`).focus();
+    }
+}
+
+// Carregar perfil do usuário
+function loadUserProfile() {
+    const currentUser = JSON.parse(localStorage.getItem('current_user'));
+    if (!currentUser) return;
+    
+    const nameEl = document.getElementById('profile-name');
+    const emailEl = document.getElementById('profile-email');
+    const roleEl = document.getElementById('profile-role');
+    const postsCountEl = document.getElementById('profile-posts-count');
+    const followersCountEl = document.getElementById('profile-followers-count');
+    const followingCountEl = document.getElementById('profile-following-count');
+    
+    if (nameEl) nameEl.innerText = currentUser.name;
+    if (emailEl) emailEl.innerText = currentUser.email;
+    if (roleEl) roleEl.innerText = `🎭 ${currentUser.role}`;
+    
+    let posts = JSON.parse(localStorage.getItem('shrine_posts') || '[]');
+    const userPosts = posts.filter(p => p.authorEmail === currentUser.email);
+    if (postsCountEl) postsCountEl.innerText = userPosts.length;
+    
+    let followers = JSON.parse(localStorage.getItem('shrine_followers') || '{}');
+    const userFollowers = followers[currentUser.email] || [];
+    const userFollowing = Object.keys(followers).filter(k => (followers[k] || []).includes(currentUser.email));
+    
+    if (followersCountEl) followersCountEl.innerText = userFollowers.length;
+    if (followingCountEl) followingCountEl.innerText = userFollowing.length;
+    
+    // Carregar posts do usuário
+    const userPostsList = document.getElementById('user-posts-list');
+    if (userPostsList) {
+        if (userPosts.length === 0) {
+            userPostsList.innerHTML = '<div class="loading-text">Você ainda não publicou nada</div>';
+        } else {
+            userPostsList.innerHTML = userPosts.map(p => `
+                <div class="post-card">
+                    <div class="post-content">${p.content}</div>
+                    <div class="post-time">${p.displayTime}</div>
+                </div>
+            `).join('');
+        }
+    }
+}
+
+// Seguir usuário
+function followUser(userEmail) {
+    const currentUser = JSON.parse(localStorage.getItem('current_user'));
+    if (!currentUser) return;
+    
+    let followers = JSON.parse(localStorage.getItem('shrine_followers') || '{}');
+    if (!followers[userEmail]) followers[userEmail] = [];
+    
+    if (!followers[userEmail].includes(currentUser.email)) {
+        followers[userEmail].push(currentUser.email);
+        localStorage.setItem('shrine_followers', JSON.stringify(followers));
+        alert('✨ Você seguiu este usuário!');
+    }
+}
+
+// Denunciar usuário
+function reportUser(userEmail) {
+    const currentUser = JSON.parse(localStorage.getItem('current_user'));
+    if (!currentUser) return;
+    
+    const reason = prompt('Por que deseja denunciar este usuário?');
+    if (!reason) return;
+    
+    const report = {
+        id: generateId(),
+        reportedEmail: userEmail,
+        reporterEmail: currentUser.email,
+        reporterName: currentUser.name,
+        reason: reason,
+        timestamp: new Date().toISOString()
+    };
+    
+    let reports = JSON.parse(localStorage.getItem('shrine_reports') || '[]');
+    reports.push(report);
+    localStorage.setItem('shrine_reports', JSON.stringify(reports));
+    
+    logActivity('REPORT', userEmail, 'Denúncia');
+    alert('✓ Denúncia enviada aos administradores');
+}
+
+// Mudar aba social
+function switchSocialTab(tab) {
+    const tabs = document.querySelectorAll('.social-tab-content');
+    const btns = document.querySelectorAll('.social-tab-btn');
+    
+    tabs.forEach(t => t.classList.remove('active'));
+    btns.forEach(b => b.classList.remove('active'));
+    
+    const activeTab = document.getElementById(`${tab}-tab`);
+    if (activeTab) activeTab.classList.add('active');
+    
+    const activeBtn = Array.from(btns).find(b => b.textContent.includes(
+        tab === 'feed' ? '📰' : tab === 'profile' ? '👤' : tab === 'followers' ? '👥' : '🔍'
+    ));
+    if (activeBtn) activeBtn.classList.add('active');
+    
+    if (tab === 'profile') loadUserProfile();
+    if (tab === 'feed') loadFeed();
+}
+
+// Gerar ID único
+function generateId() {
+    return 'id_' + Math.random().toString(36).substr(2, 9) + Date.now();
+}
+
 
 // Close modal when clicking outside
 document.addEventListener('DOMContentLoaded', () => {

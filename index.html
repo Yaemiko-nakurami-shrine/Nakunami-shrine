@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="social-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <title>Nakunami Shrine - Santuário de Yae Miko</title>
@@ -213,6 +214,92 @@
         </div>
     </section>
 
+    <!-- SEÇÃO 9: SOCIAL NETWORK FEED -->
+    <section id="social-feed-section" class="social-feed-section" style="display: none;">
+        <div class="social-container">
+            <!-- Social Navigation Tabs -->
+            <div class="social-nav-tabs">
+                <button class="social-tab-btn active" onclick="switchSocialTab('feed')">📰 Feed</button>
+                <button class="social-tab-btn" onclick="switchSocialTab('profile')">👤 Meu Perfil</button>
+                <button class="social-tab-btn" onclick="switchSocialTab('followers')">👥 Seguidores</button>
+                <button class="social-tab-btn" onclick="switchSocialTab('explore')">🔍 Explorar</button>
+            </div>
+
+            <!-- Feed Tab -->
+            <div id="feed-tab" class="social-tab-content active">
+                <!-- Post Creator -->
+                <div class="post-creator">
+                    <h3>✨ Compartilhar com Nakunami</h3>
+                    <textarea id="post-content-input" class="post-input" placeholder="O que você deseja compartilhar com o santuário?" rows="3"></textarea>
+                    
+                    <div class="post-creator-footer">
+                        <input type="file" id="post-media-input" accept="image/*,video/*" style="display: none;">
+                        <button class="post-action-btn" onclick="document.getElementById('post-media-input').click()">🖼️ Foto/Vídeo</button>
+                        <button class="post-submit-btn" onclick="createPost()">Publicar ⚡</button>
+                    </div>
+                </div>
+
+                <!-- Posts Feed -->
+                <div id="posts-feed" class="posts-feed">
+                    <div class="loading-text">Carregando posts...</div>
+                </div>
+            </div>
+
+            <!-- Profile Tab -->
+            <div id="profile-tab" class="social-tab-content">
+                <div id="user-profile-card" class="user-profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">👤</div>
+                        <div class="profile-info">
+                            <h2 id="profile-name">Nome do Usuário</h2>
+                            <p id="profile-email">Email</p>
+                            <p id="profile-role">Papel</p>
+                        </div>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span id="profile-posts-count">0</span>
+                            <p>Posts</p>
+                        </div>
+                        <div class="stat">
+                            <span id="profile-followers-count">0</span>
+                            <p>Seguidores</p>
+                        </div>
+                        <div class="stat">
+                            <span id="profile-following-count">0</span>
+                            <p>Seguindo</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="user-posts-container" class="user-posts-container">
+                    <h3>Meus Posts</h3>
+                    <div id="user-posts-list" class="posts-list"></div>
+                </div>
+            </div>
+
+            <!-- Followers Tab -->
+            <div id="followers-tab" class="social-tab-content">
+                <h3>👥 Seguidores e Seguindo</h3>
+                <div class="followers-container">
+                    <div class="followers-section">
+                        <h4>Meus Seguidores</h4>
+                        <div id="followers-list" class="users-grid"></div>
+                    </div>
+                    <div class="followers-section">
+                        <h4>Estou Seguindo</h4>
+                        <div id="following-list" class="users-grid"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explore Tab -->
+            <div id="explore-tab" class="social-tab-content">
+                <h3>🔍 Explorar Usuários</h3>
+                <div id="explore-users" class="users-grid"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- SEÇÃO 9: FOOTER COM REDES SOCIAIS -->
     <footer class="social-footer">
         <h3>Follow the Shrine</h3>
@@ -253,6 +340,14 @@
                     <button class="admin-btn" onclick="changeUserRole()">✏️ Alterar Papel</button>
                     <button class="admin-btn" onclick="deleteUser()">🗑️ Deletar Usuário</button>
                     <button class="admin-btn" onclick="adminAction('WARN')">⚠️ Avisar Usuário</button>
+                </div>
+                
+                <!-- Lista de Usuários -->
+                <div id="users-list-section" class="users-list-section" style="display: none; margin-top: 20px;">
+                    <h4>👥 Usuários Registrados</h4>
+                    <div id="users-list-container" class="users-list-container">
+                        <div class="loading-text">Carregando usuários...</div>
+                    </div>
                 </div>
             </div>
 
