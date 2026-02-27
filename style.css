@@ -93,12 +93,20 @@ p:hover {
 }
 .shrine-nav {
     background: rgba(211, 47, 47, 0.9); /* Vermelho Torii */
-    padding: 15px 0;
+    padding: 15px 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     border-bottom: 3px solid #ffd1dc;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .shrine-nav ul {
@@ -107,6 +115,7 @@ p:hover {
     justify-content: center;
     gap: 30px;
     margin: 0;
+    flex: 1;
 }
 
 .shrine-nav a {
@@ -862,14 +871,6 @@ input:hover, textarea:hover {
 .auth-toggle a:hover {
   color: #ff88bb;
   text-decoration: underline;
-}
-
-/* Navigation with auth button */
-.nav-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
 }
 
 .auth-btn {
