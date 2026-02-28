@@ -543,10 +543,14 @@
             setTimeout(() => spark.remove(), 600);
         });
 
-        // ===== FORM SUBMISSION =====
-        document.querySelector('form')?.addEventListener('submit', () => {
-            alert("May the Narukami light guide your path... Your offering was sent! ✨");
-        });
+        // ===== CONTACT FORM SUBMISSION =====
+        // only show the offering alert for the contact form, not the login/signup forms
+        const contactForm = document.querySelector('#contact form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', () => {
+                alert("May the Narukami light guide your path... Your offering was sent! ✨");
+            });
+        }
 
         // ===== ANALYTICS =====
         async function sendSiteAnalytics(eventDetail) {

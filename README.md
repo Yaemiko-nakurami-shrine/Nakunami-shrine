@@ -25,6 +25,7 @@ Senha: admin123
 Email: miko@shrine.jp
 Senha: kitsune123
 ```
+> **Dica:** o endereço de e‑mail é comparado de forma *case‑insensitive* e espaços extras são removidos automaticamente — digite tudo em minúsculas e sem espaços.
 
 ## 👥 Sistema de Roles
 

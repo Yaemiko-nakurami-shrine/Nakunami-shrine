@@ -188,25 +188,32 @@ function setupAuthSystem() {
 // ===== LOGIN HANDLER =====
 function handleLogin(event) {
     event.preventDefault();
-    const email = event.target.querySelector('input[type="email"]').value;
-    const password = event.target.querySelector('input[type="password"]').value;
+    // normalize/trim inputs to avoid common user mistakes (extra spaces, uppercase)
+    const emailInput = event.target.querySelector('input[type="email"]');
+    const passwordInput = event.target.querySelector('input[type="password"]');
+    const email = (emailInput?.value || '').trim().toLowerCase();
+    const password = passwordInput?.value || '';
 
     if (!email || !password) {
         alert('Por favor, preencha todos os campos!');
         return;
     }
 
-    const users = JSON.parse(localStorage.getItem('shrine_users') || '[]');
-    const user = users.find(u => u.email === email && u.password === password);
+    let users = JSON.parse(localStorage.getItem('shrine_users') || '[]');
+    // compare emails case-insensitively
+    const userIndex = users.findIndex(u => (u.email || '').toLowerCase() === email && u.password === password);
+    const user = userIndex !== -1 ? users[userIndex] : null;
 
     if (user) {
-        // Assign role based on email
-        if (email === ADMIN_EMAIL) {
+        // Assign role based on email (always keep demo/admin logic consistent)
+        if (email === ADMIN_EMAIL.toLowerCase()) {
             user.role = ROLES.ADMIN;
         } else if (!user.role) {
             user.role = ROLES.MEMBER;
         }
-        
+        // persist any potential role update back into the users array
+        users[userIndex] = user;
+        localStorage.setItem('shrine_users', JSON.stringify(users));
         localStorage.setItem('current_user', JSON.stringify(user));
         
         // Log activity
@@ -219,7 +226,7 @@ function handleLogin(event) {
         event.target.reset();
         checkUserRole();
     } else {
-        alert('❌ Email ou senha inválido!');
+        alert('❌ Email ou senha inválido! Verifique se não há espaços extras e se o email está correto.');
     }
 }
 
@@ -228,7 +235,8 @@ function handleSignUp(event) {
     event.preventDefault();
     const inputs = event.target.querySelectorAll('input');
     const name = inputs[0].value;
-    const email = inputs[1].value;
+    // convert email to lowercase and trim so login later is consistent
+    const email = (inputs[1].value || '').trim().toLowerCase();
     const password = inputs[2].value;
     const confirmPassword = inputs[3].value;
 
@@ -248,13 +256,13 @@ function handleSignUp(event) {
     }
 
     let users = JSON.parse(localStorage.getItem('shrine_users') || '[]');
-    if (users.find(u => u.email === email)) {
+    if (users.find(u => (u.email || '').toLowerCase() === email)) {
         alert('❌ Este email já está registrado!');
         return;
     }
 
     // Assign role: only admin email gets admin role, others get member role
-    const role = email === ADMIN_EMAIL ? ROLES.ADMIN : ROLES.MEMBER;
+    const role = email === ADMIN_EMAIL.toLowerCase() ? ROLES.ADMIN : ROLES.MEMBER;
     
     const newUser = { 
         name, 
@@ -545,14 +553,12 @@ function resetAllData() {
 
 // ===== AUTH MODAL FUNCTIONS =====
 function openAuthModal() {
-    alert('DEBUG: openAuthModal chamado');
     const modal = document.getElementById('auth-modal');
-    if (modal) {
-        modal.classList.add('active');
-    }
     const loginForm = document.getElementById('login-form');
-    if (loginForm) loginForm.classList.add('active');
     const signupForm = document.getElementById('signup-form');
+    
+    if (modal) modal.classList.add('active');
+    if (loginForm) loginForm.classList.add('active');
     if (signupForm) signupForm.classList.remove('active');
 }
 
