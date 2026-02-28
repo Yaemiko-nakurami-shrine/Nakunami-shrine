@@ -5,7 +5,7 @@ Um santuário temático de Yae Miko do Genshin Impact com **sistema de autentica
 ## ✨ Destaques
 
 - 🎭 **Sistema de Roles** - 3 níveis: Visitante, Membro e Administrador
-- 🔐 **Autenticação** - Login e Sign Up direto no site
+- 🔐 **Autenticação** - Login e Sign Up direto no site (cada abertura registra um `console.log` para debug)
 - 👑 **Painel Admin** - Exclusivo para `damiensoaresbrito@gmail.com`
 - ⚡ **Animações** - Efeitos Electro e Thunder do Genshin Impact
 - 📱 **Responsivo** - Funciona em desktop e mobile

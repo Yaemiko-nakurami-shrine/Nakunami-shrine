@@ -553,17 +553,32 @@ function resetAllData() {
 
 // ===== AUTH MODAL FUNCTIONS =====
 function openAuthModal() {
+    console.log('openAuthModal chamado'); // useful for debugging
     const modal = document.getElementById('auth-modal');
     const loginForm = document.getElementById('login-form');
     const signupForm = document.getElementById('signup-form');
-    
+    const authBtn = document.querySelector('.auth-btn');
+
     if (modal) modal.classList.add('active');
     if (loginForm) loginForm.classList.add('active');
     if (signupForm) signupForm.classList.remove('active');
+
+    // prevent clicks on the button from propagating through the overlay
+    if (authBtn) {
+        authBtn.disabled = true;
+        authBtn.style.opacity = '0.5';
+        authBtn.style.pointerEvents = 'none';
+    }
 }
 
 function closeAuthModal() {
     document.getElementById('auth-modal').classList.remove('active');
+    const authBtn = document.querySelector('.auth-btn');
+    if (authBtn) {
+        authBtn.disabled = false;
+        authBtn.style.opacity = '';
+        authBtn.style.pointerEvents = '';
+    }
 }
 
 function switchToSignUp() {
@@ -929,7 +944,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const authModal = document.getElementById('auth-modal');
     if (authModal) {
         authModal.addEventListener('click', (e) => {
-            if (e.target.id === 'auth-modal') {
+            // Only close when the click target is the modal overlay itself
+            if (e.target === authModal) {
                 closeAuthModal();
             }
         });
