@@ -1046,3 +1046,78 @@ window.addEventListener('load', () => {
         showMaintenance();
     }
 });
+// Data structure for characters
+const characters = {
+    "Raiden Shogun": {
+        messages: ["Eternity is silent.", "Focus on your tasks."]
+    },
+    "Zhongli": {
+        messages: ["History has many lessons to teach.", "Everything has its own order."]
+    }
+};
+
+// Function to generate a response
+function generateCharacterResponse() {
+    const names = Object.keys(characters);
+    const randomName = names[Math.floor(Math.random() * names.length)];
+    const messagePool = characters[randomName].messages;
+    const randomMessage = messagePool[Math.floor(Math.random() * messagePool.length)];
+
+    // Logic to update the UI
+    // Example: appendToFeed(randomName, randomMessage);
+    console.log(`${randomName}: ${randomMessage}`);
+}
+// Characters available to comment in the Nakunami Shrine feed
+const otherCharacters = {
+    "Raiden Shogun": {
+        messages: [
+            "This place is quiet. See that it stays that way.",
+            "I have considered your recent post. It is... acceptable.",
+            "The concept of a 'social feed' is curious. Does it aid in the pursuit of eternity?"
+        ]
+    },
+    "Zhongli": {
+        messages: [
+            "A fascinating perspective. It reminds me of the tales told in Liyue Harbor.",
+            "I find this method of communication quite efficient, though it lacks the charm of a handwritten scroll.",
+            "May your day be as peaceful as the Jueyun Karst at dawn."
+        ]
+    },
+    "Kamisato Ayato": {
+        messages: [
+            "I see the Yae Publishing House is as busy as ever. A productive atmosphere, indeed.",
+            "Maintaining order in such a public forum is no small feat, Guuji-sama.",
+            "Efficiency is key to success. I trust you are managing the archives well."
+        ]
+    },
+    "Arataki Itto": {
+        messages: [
+            "HEY! Why isn't there a section here for beetle fighting tips?!",
+            "This shrine is fancy and all, but it needs more action!",
+            "If anyone needs a challenge, the Arataki Gang is ready to roll!"
+        ]
+    },
+    "Klee": {
+        messages: [
+            "The shrine is so pretty! I promise not to make any big BOOMS here!",
+            "Do you think fish would like it if I decorated the water with shiny pebbles?",
+            "I found a treasure! Does the shrine want to see?"
+        ]
+    }
+};
+// Define the variable ONLY ONCE
+const otherCharacter = {
+    "Raiden Shogun": {
+        messages: ["Eternity is silent.", "The shrine is quiet."],
+    },
+    "Zhongli": {
+        messages: ["History is vast.", "A peaceful day."],
+    },
+    // Add all your other characters inside this same object
+};
+
+// Now you can use 'otherCharacters' as much as you want in your functions
+function postAsCharacter(name) {
+    const char = otherCharacters[name]; 
+    // ... rest of your code
+}
