@@ -1564,6 +1564,19 @@ input:hover, textarea:hover {
   transition: all 0.3s;
   font-size: 0.85rem;
 }
+/* Isso torna as letras das regras brancas e com um leve brilho */
+.shrine-rules, .shrine-rules td, .shrine-rules th {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px #000000;
+    font-weight: 500;
+}
+
+/* Fundo para a tabela ficar destacada */
+.shrine-rules {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    border-radius: 10px;
+}
 
 .admin-btn:hover {
   background: linear-gradient(135deg, #8B008B, #FF1493);
@@ -1850,33 +1863,46 @@ input:hover, textarea:hover {
     max-width: 600px;
 }
 
-/* Título da seção */
-.section-title {
-    color: #ff99cc; /* Tom de rosa suave */
-    font-family: 'Georgia', serif;
-    margin-bottom: 20px;
+/* Estilo geral dos campos de input */
+input, textarea {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid #ffccff !important;
+    color: white !important;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 5px 0;
 }
 
-/* Card do livro */
-.book-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
+/* Placeholder (o texto cinza dentro do campo) */
+input::placeholder, textarea::placeholder {
+    color: #ffccff !important;
+    opacity: 0.7;
 }
 
-/* Botão de Download estilizado */
-.btn-download {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 25px;
-    background-color: #800080; /* Roxo vibrante */
-    color: white;
-    text-decoration: none;
+/* Botão de Submit no estilo Yae Miko */
+.submit-button {
+    background-color: #6a0dad !important; /* Roxo Miko */
+    color: white !important;
+    border: none;
+    padding: 12px 25px;
     border-radius: 20px;
-    font-weight: bold;
-    transition: background 0.3s;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.btn-download:hover {
-    background-color: #ff6699; /* Muda para rosa ao passar o mouse */
+.submit-button:hover {
+    background-color: #ff6699 !important; /* Rosa quando passa o mouse */
+}
+/* Isso torna as letras das regras brancas e com um leve brilho */
+.shrine-rules, .shrine-rules td, .shrine-rules th {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px #000000;
+    font-weight: 500;
+}
+
+/* Fundo para a tabela ficar destacada */
+.shrine-rules {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    border-radius: 10px;
 }
