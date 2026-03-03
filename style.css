@@ -1852,72 +1852,32 @@ input:hover, textarea:hover {
     font-weight: bold;
     display: inline-block;
 }
-/* Container principal da seção */
+/* Estilo da Seção Yae Publishing House */
 .publishing-house-section {
-    text-align: center;
-    padding: 40px 20px;
-    background: rgba(40, 10, 30, 0.7); /* Fundo escuro levemente transparente */
-    border: 1px solid #c8a2c8; /* Borda roxa clara */
+    background: rgba(40, 10, 30, 0.8); /* Fundo roxo escuro com transparência */
+    padding: 30px;
+    border-radius: 20px;
     margin: 20px auto;
-    border-radius: 15px;
-    max-width: 600px;
-}
-
-/* Estilo geral dos campos de input */
-input, textarea {
-    background: rgba(255, 255, 255, 0.15) !important;
-    border: 1px solid #ffccff !important;
-    color: white !important;
-    padding: 10px;
-    border-radius: 8px;
-    margin: 5px 0;
-}
-
-/* Placeholder (o texto cinza dentro do campo) */
-input::placeholder, textarea::placeholder {
-    color: #ffccff !important;
-    opacity: 0.7;
-}
-
-/* Botão de Submit no estilo Yae Miko */
-.submit-button {
-    background-color: #6a0dad !important; /* Roxo Miko */
-    color: white !important;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.submit-button:hover {
-    background-color: #ff6699 !important; /* Rosa quando passa o mouse */
-}
-/* Isso torna as letras das regras brancas e com um leve brilho */
-.shrine-rules, .shrine-rules td, .shrine-rules th {
-    color: #ffffff !important;
-    text-shadow: 1px 1px 2px #000000;
-    font-weight: 500;
-}
-
-/* Fundo para a tabela ficar destacada */
-.shrine-rules {
-    background: rgba(0, 0, 0, 0.4);
-    padding: 15px;
-    border-radius: 10px;
-}
-.shrine-theme {
-    background-image: url('caminho-da-sua-imagem-de-fundo.jpg');
-    background-size: cover;
-    color: white;
-    font-family: 'Arial', sans-serif;
-}
-
-.content-box {
-    background: rgba(40, 10, 30, 0.85); /* Fundo roxo escuro translúcido */
-    padding: 40px;
-    margin: 50px auto;
-    max-width: 800px;
-    border-radius: 20px;
     text-align: center;
+    border: 1px solid #ff99cc;
+}
+
+.section-title {
+    color: #ff99cc;
+}
+
+.btn-download {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background-color: #800080;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Correção para o texto das regras não ficar invisível */
+.shrine-rules, .shrine-rules td {
+    color: #ffffff !important;
 }
