@@ -1881,3 +1881,38 @@ input:hover, textarea:hover {
 .shrine-rules, .shrine-rules td {
     color: #ffffff !important;
 }
+.navbar {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.publishing-house-section {
+    background: rgba(40, 10, 30, 0.8);
+    padding: 30px;
+    border-radius: 20px;
+    margin: 20px auto;
+    text-align: center;
+    max-width: 600px;
+    border: 1px solid #ff99cc;
+}
+
+.section-title { color: #ff99cc; }
+
+.btn-download {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background-color: #800080;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+}
