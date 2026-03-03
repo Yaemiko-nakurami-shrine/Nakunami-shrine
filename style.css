@@ -1839,3 +1839,44 @@ input:hover, textarea:hover {
     font-weight: bold;
     display: inline-block;
 }
+/* Container principal da seção */
+.publishing-house-section {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(40, 10, 30, 0.7); /* Fundo escuro levemente transparente */
+    border: 1px solid #c8a2c8; /* Borda roxa clara */
+    margin: 20px auto;
+    border-radius: 15px;
+    max-width: 600px;
+}
+
+/* Título da seção */
+.section-title {
+    color: #ff99cc; /* Tom de rosa suave */
+    font-family: 'Georgia', serif;
+    margin-bottom: 20px;
+}
+
+/* Card do livro */
+.book-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Botão de Download estilizado */
+.btn-download {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background-color: #800080; /* Roxo vibrante */
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-download:hover {
+    background-color: #ff6699; /* Muda para rosa ao passar o mouse */
+}
