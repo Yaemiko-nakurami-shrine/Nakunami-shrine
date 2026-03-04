@@ -1121,3 +1121,30 @@ function postAsCharacter(name) {
     const char = otherCharacters[name]; 
     // ... rest of your code
 }
+document.getElementById('btn-explorar').addEventListener('click', function() {
+    const grid = document.getElementById('explore-users');
+    
+    // Dados de exemplo (você pode adicionar mais aqui)
+    const usuarios = [
+        { nome: "Miko Devotee", email: "miko@shrine.jp", rank: "member" },
+        { nome: "Narukami Fan", email: "electro@inazuma.it", rank: "Fiel" },
+        { nome: "Kitsune Saiguu", email: "memory@hakushin.com", rank: "Lenda" }
+    ];
+
+
+    // Limpa o conteúdo atual para não duplicar se clicar várias vezes
+    grid.innerHTML = '';
+
+    // Cria os cards dinamicamente
+    usuarios.forEach(user => {
+        const card = document.createElement('div');
+        card.className = 'user-card-animado';
+        card.innerHTML = `
+            <div class="user-avatar">🦊</div>
+            <h4>${user.nome}</h4>
+            <p>${user.email}</p>
+            <span class="badge">${user.rank}</span>
+        `;
+        grid.appendChild(card);
+    });
+});
