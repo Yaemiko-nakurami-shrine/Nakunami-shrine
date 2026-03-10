@@ -40,7 +40,7 @@ a {
 @keyframes electro-pulse { from { text-shadow: 0 0 5px #ffb7c5, 0 0 10px #9d72ff; } to { text-shadow: 0 0 10px #ffb7c5, 0 0 25px #d1b3ff; } }
 body {
   /* Substitua pelo link da sua imagem ou caminho do arquivo no GitHub */
-  background-image: url(https://i.pinimg.com/736x/bb/c6/2a/bbc62a4f2c408ba71a72c6b0837e04a7.jpg); 
+  background-image: url(https://i.pinimg.com/1200x/07/18/95/07189581dbe6d286c31bd60e59ba0c08.jpg); 
   /* Garante que a imagem cubra a tela toda sem repetir */
   background-size: cover;
   background-position: center;
@@ -56,7 +56,7 @@ body {
   margin: 50px auto;
 }
 body {
-    background-image:url(https://i.pinimg.com/736x/bb/c6/2a/bbc62a4f2c408ba71a72c6b0837e04a7.jpg);
+    background-image:url(https://i.pinimg.com/1200x/07/18/95/07189581dbe6d286c31bd60e59ba0c08.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
